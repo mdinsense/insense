@@ -1,1 +1,24 @@
+.DS_Store
+
+# Eclipse Artifacts
+
+.settings
+.classpath
+.project
+
+# Insense Build Folders
+/insense-*/build
+
+
+# IDEA Artifacts
+*.iml
+*.ipr
+*.iws
+.idea
+out
+
+
+# Gradle
+.gradle
+
 
