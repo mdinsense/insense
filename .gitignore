@@ -1,24 +1,36 @@
+# Mac
+
 .DS_Store
+.Trashes
 
 # Eclipse Artifacts
 
-.settings
 .classpath
 .project
+.settings/
+
 
 # Insense Build Folders
-/insense-*/build
+/insense-*/build/
 
 
 # IDEA Artifacts
-*.iml
+
+out
 *.ipr
 *.iws
-.idea
-out
+*.iml
+.idea/
 
 
 # Gradle
-.gradle
+.gradle/
+
+# Maven
+
+log/
+target/
+
+.git/
 
 
