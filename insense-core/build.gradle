@@ -1,0 +1,9 @@
+group 'com.ensense'
+version '0.1.0.BUILD-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.5
+
+dependencies {
+}
