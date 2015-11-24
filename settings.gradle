@@ -1,6 +1,6 @@
-rootProject.name = 'insense'
+rootProject.name = "insense"
 
-include 'insense-core'
-include 'insense-data'
-include 'insense-services'
-include 'insense-web'
+include "insense-core"
+include "insense-data"
+include "insense-services"
+include "insense-web"

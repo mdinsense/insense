@@ -25,6 +25,7 @@ out
 
 # Gradle
 .gradle/
+.gradletasknamecache
 
 # Maven
 
