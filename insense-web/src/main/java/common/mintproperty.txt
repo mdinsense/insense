@@ -1,0 +1,3 @@
+db_user_name=Database User Name
+db_password=Database Password
+mint_admin_login_id=Admin Login Id

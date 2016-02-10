@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/security
+        http://www.springframework.org/schema/security/spring-security-3.1.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/tx 
+    	http://www.springframework.org/schema/tx/spring-tx.xsd
+    	http://www.springframework.org/schema/task  
+    	http://www.springframework.org/schema/task/spring-task-3.0.xsd
+    	http://www.springframework.org/schema/util 
+    	http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+		<mvc:annotation-driven />
+		<tx:annotation-driven />
+		<context:component-scan base-package="com.cts.mint"/>
+		
+		<util:properties id="schedulerProps" location="/WEB-INF/scheduler.properties" />
+		<context:property-placeholder properties-ref="schedulerProps"  />
+	
+		<task:annotation-driven executor="myExecutor" scheduler="taskScheduler"/>
+		<task:executor id="myExecutor" pool-size="40"/>
+		<task:scheduler id="taskScheduler" pool-size="40"/>
+		<mvc:interceptors>
+  			<bean class="com.cts.mint.common.interceptor.CommonInterceptor"></bean>
+  		</mvc:interceptors> 
+
+	<!-- freemarker config -->
+	<bean id="freemarkerConfig"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPath" value="/WEB-INF/ftl" />
+	</bean>
+	<bean id="esbpingUrlProperty" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">	
+		<property name="basename"     value="/WEB-INF/resource/esbping/ProdESBPing"/>
+	</bean>
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">	
+		<property name="basename"     value="/WEB-INF/messages"/>
+	</bean>
+	<bean id="schedulerProperties" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">	
+		<property name="basename"     value="/WEB-INF/scheduler"/>
+	</bean>
+	<bean id="configProperties" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">	
+		<property name="basename"     value="/WEB-INF/config"/>
+	</bean>
+	<util:properties id="akamaiMapping" location="/WEB-INF/resource/akamai/akamaiMappings.properties" />
+	<util:properties id="proxyAuthentication" location="/WEB-INF/resource/akamai/proxyauthentication.properties" />
+	
+	<!-- View resolvers can also be configured with ResourceBundles or XML files. 
+		If you need different view resolving based on Locale, you have to use the 
+		resource bundle resolver. -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		<property name="cache" value="true" />
+		<property name="prefix" value="" />
+		<property name="suffix" value=".ftl" />
+		<property name="exposeSessionAttributes"><value>true</value></property>
+	</bean>
+	
+<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+  <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+  <property name="url" value="jdbc:mysql://localhost:3306/mintDB" />
+  <property name="username" value="mint_user" />
+  <property name="password" value="mint" />
+  <property name="removeAbandoned" value="true" />
+  <property name="initialSize" value="20" />
+  <property name="maxActive" value="30" />
+</bean>
+
+<bean id="oracleDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+  <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+  <property name="url" value="jdbc:oracle:thin:MINT/v15dbumint01@dentsd3dlpx04.test.tiaa-cref.org:1522:umint01" />
+  <property name="username" value="MINT" />
+  <property name="password" value="v15dbumint01" />
+  <property name="removeAbandoned" value="true" />
+  <property name="initialSize" value="20" />
+  <property name="maxActive" value="50" />
+</bean>
+
+<bean id="oracleDataSourceTest" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+  <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+  <property name="url" value="jdbc:oracle:thin:MINT/v15dbumint01@dentsd3dlpx04.test.tiaa-cref.org:1522:umint01" />
+  <property name="username" value="MINTTEST" />
+  <property name="password" value="tstmint15" />
+  <property name="removeAbandoned" value="true" />
+  <property name="initialSize" value="20" />
+  <property name="maxActive" value="50" />
+</bean>
+
+<bean id="oracleDataSourceDev1" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+  <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+  <property name="url" value="jdbc:oracle:thin:MINT/v15dbumint01@dentsd3dlpx04.test.tiaa-cref.org:1522:umint01" />
+  <property name="username" value="MINT_DEV1" />
+  <property name="password" value="mintdev1dlpx" />
+  <property name="removeAbandoned" value="true" />
+  <property name="initialSize" value="20" />
+  <property name="maxActive" value="50" />
+</bean>
+
+<bean id="oracleDataSourceDev2" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+  <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+  <property name="url" value="jdbc:oracle:thin:MINT/v15dbumint01@dentsd3dlpx04.test.tiaa-cref.org:1522:umint01" />
+  <property name="username" value="MINT_DEV2" />
+  <property name="password" value="mintdev2dlpx" />
+  <property name="removeAbandoned" value="true" />
+  <property name="initialSize" value="20" />
+  <property name="maxActive" value="50" />
+</bean>
+
+<!--<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    <property name="dataSource" ref="oracleDataSource"></property>
+    <property name="hibernateProperties">
+      <props>
+        <prop 
+         key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+        <prop key="hibernate.show_sql">false</prop>
+        <prop key="hibernate.connection.SetBigStringTryClob">true</prop>
+        <prop key="hibernate.jdbc.batch_size">0</prop>
+        //TODO: <prop key="hibernate.hbm2ddl.auto">update</prop>
+        <prop key="hibernate.hbm2ddl.auto">create</prop>
+       	<prop key="hibernate.hbm2ddl.import_files">initial_data.sql</prop>
+      </props>
+    </property>
+    <property name="packagesToScan">
+    	<list>
+    		<value>com.cts.mint</value>
+    	</list>
+    </property>
+</bean>-->
+
+<!--<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    <property name="dataSource" ref="oracleDataSourceTest"></property>
+    <property name="hibernateProperties">
+      <props>
+        <prop 
+         key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+        <prop key="hibernate.show_sql">false</prop>
+        <prop key="hibernate.connection.SetBigStringTryClob">true</prop>
+        <prop key="hibernate.jdbc.batch_size">0</prop>
+        //TODO:<prop key="hibernate.hbm2ddl.auto">update</prop>
+        <prop key="hibernate.hbm2ddl.auto">create</prop>
+       	<prop key="hibernate.hbm2ddl.import_files">initial_data.sql</prop>
+      </props>
+    </property>
+    <property name="packagesToScan">
+    	<list>
+    		<value>com.cts.mint</value>
+    	</list>
+    </property>
+</bean>-->
+
+<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    <property name="dataSource" ref="oracleDataSourceDev1"></property>
+    <property name="hibernateProperties">
+      <props>
+        <prop 
+         key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+        <prop key="hibernate.show_sql">false</prop>
+        <prop key="hibernate.connection.SetBigStringTryClob">true</prop>
+        <prop key="hibernate.jdbc.batch_size">0</prop>
+        <!--//TODO:<prop key="hibernate.hbm2ddl.auto">update</prop>
+        <prop key="hibernate.hbm2ddl.auto">create</prop>
+       	<prop key="hibernate.hbm2ddl.import_files">initial_data.sql</prop>-->
+      </props>
+    </property>
+    <property name="packagesToScan">
+    	<list>
+    		<value>com.cts.mint</value>
+    	</list>
+    </property>
+</bean>
+
+<!--<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    <property name="dataSource" ref="oracleDataSourceDev2"></property>
+    <property name="hibernateProperties">
+      <props>
+        <prop 
+         key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+        <prop key="hibernate.show_sql">false</prop>
+        <prop key="hibernate.connection.SetBigStringTryClob">true</prop>
+        <prop key="hibernate.jdbc.batch_size">0</prop>
+        //TODO:<prop key="hibernate.hbm2ddl.auto">update</prop>
+        <prop key="hibernate.hbm2ddl.auto">create</prop>
+       	<prop key="hibernate.hbm2ddl.import_files">initial_data.sql</prop>
+         
+      </props>
+    </property>
+    <property name="packagesToScan">
+    	<list>
+    		<value>com.cts.mint</value>
+    	</list>
+    </property>
+</bean>-->
+
+<!--<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    <property name="dataSource" ref="dataSource"></property>
+    <property name="hibernateProperties">
+      <props>
+        <prop 
+         key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+        <prop key="hibernate.show_sql">false</prop>
+        <prop key="hibernate.connection.SetBigStringTryClob">true</prop>
+        <prop key="hibernate.jdbc.batch_size">0</prop>
+
+		//TODO:<prop key="hibernate.hbm2ddl.auto">update</prop>
+		<prop key="hibernate.hbm2ddl.auto">create</prop>
+		<prop key="hibernate.hbm2ddl.import_files">initial_data.sql</prop>
+      </props>
+    </property>
+    <property name="packagesToScan">
+    	<list>
+    		<value>com.cts.mint</value>
+    	</list>
+    </property>
+</bean>-->
+
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">         
+	<!-- one of the properties available; the maximum file size in bytes -->        
+	<property name="maxUploadSize" value="10000000" />
+</bean>
+
+<bean id="transactionManager"
+    class="org.springframework.orm.hibernate4.HibernateTransactionManager" 
+    p:sessionFactory-ref="sessionFactory">
+</bean>
+
+	<!-- SET default mail properties -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="mail.cognizant.com" />
+		<property name="port" value="25" />
+		<property name="username" value="sudha.perumal@cognizant.com" />
+		<property name="password" value="password-2" />
+		<property name="javaMailProperties">
+			<props>
+
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.debug">true</prop>
+			</props>
+		</property>
+	</bean>        
+	<bean id="preConfiguredMessage" class="org.springframework.mail.SimpleMailMessage">
+		<property name="to" value="DManni@tiaa-cref.org"></property>
+		<property name="from" value="DL_Mint_Support@tiaa-cref.org>@tiaa-cref.org"></property>
+		<property name="subject" value="FATAL - Application crash. Save your job !!" />
+	</bean>
+
+</beans>

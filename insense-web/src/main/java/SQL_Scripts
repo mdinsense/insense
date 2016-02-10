@@ -1,0 +1,43 @@
+CREATE TABLE webservices
+(
+   serviceId int PRIMARY KEY NOT NULL,
+   addedDate datetime,
+   modifiedDate datetime,
+   serviceFilePath varchar(255),
+   serviceName varchar(255),
+   serviceType varchar(255)
+);
+
+
+CREATE TABLE wsreports
+(
+   wsReportsId int PRIMARY KEY NOT NULL,
+   comparisonResultsContent longtext,
+   executionStatusRefId int,
+   matchedWithBaseline bit,
+   operationId int,
+   parameterSetId int,
+   webserviceSuiteId int,
+   wsBaselineId int,
+   wsBaselineScheduleId int,
+   wsScheduleId int,
+   generatedDateTime timestamp
+)
+;
+
+CREATE TABLE wsresults
+(
+   wsResultsId int PRIMARY KEY NOT NULL,
+   createdDateTime timestamp,
+   executionStatusRefId int,
+   operationId int,
+   parameterSetId int,
+   requestXml longtext,
+   resultXml longtext,
+   serviceId int,
+   webserviceSuiteId int,
+   wsExecutionStatusId int,
+   wsScheduleId int,
+   
+)
+;
