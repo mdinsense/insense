@@ -1,0 +1,6 @@
+rootProject.name = "insense"
+
+include "insense-core"
+include "insense-data"
+include "insense-services"
+include "insense-web"
