@@ -17,9 +17,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
-import com.cts.mint.generated.jaxb.analytics.detailedview.DetailedViewWebAnalyticsTagData.DetailedViewTags;
-import com.cts.mint.generated.jaxb.analytics.detailedview.DetailedViewWebAnalyticsTagData.DetailedViewTags.TagVariablesData;
-
+import com.ensense.insense.core.generated.jaxb.analytics.detailedview.DetailedViewWebAnalyticsTagData.DetailedViewTags;
+import com.ensense.insense.core.generated.jaxb.analytics.detailedview.DetailedViewWebAnalyticsTagData.DetailedViewTags.TagVariablesData;
 
 /**
  * <p>Java class for DetailedViewWebAnalyticsTagData element declaration.
