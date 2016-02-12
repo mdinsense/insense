@@ -1,6 +1,7 @@
 package uiadmin.form;
 
-import com.cts.mint.uitesting.model.UiTestingSetupForm;
+
+import com.ensense.insense.data.uitesting.model.UiTestingSetupForm;
 
 public class EnvironmentLoginUserForm extends UiTestingSetupForm {
 

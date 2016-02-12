@@ -1,63 +1,29 @@
 package com.ensense.insense.core.analytics.utils;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLDecoder;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.zip.ZipFile;
-
+import com.ensense.insense.core.analytics.model.*;
+import com.ensense.insense.core.utils.DateTimeUtil;
+import com.ensense.insense.core.utils.FileUtils;
+import com.ensense.insense.core.utils.JsonReaderWriter;
+import com.ensense.insense.data.analytics.entity.AnalyticsAuditSummary;
+import com.ensense.insense.data.analytics.entity.DetailedView;
+import com.ensense.insense.data.common.model.CrawlConfig;
+import com.ensense.insense.data.common.model.Link;
+import com.ensense.insense.data.common.util.FileListing;
+import com.ensense.insense.services.common.utils.UiTestingConstants;
+import edu.umass.cs.benchlab.har.*;
+import edu.umass.cs.benchlab.har.tools.HarFileReader;
+import edu.umass.cs.benchlab.har.tools.HarFileWriter;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.JsonParseException;
 
-import com.cts.mint.analytics.entity.AnalyticsAuditSummary;
-import com.cts.mint.analytics.entity.DetailedView;
-import com.cts.mint.analytics.model.BrokenUrlData;
-import com.cts.mint.analytics.model.SamePagesBrokenUrlDataStore;
-import com.cts.mint.analytics.model.SamePagesDataStore;
-import com.cts.mint.analytics.model.SupportedTagData;
-import com.cts.mint.analytics.model.TagSignaturesObject;
-import com.cts.mint.analytics.model.WebAnalyticsInventoryData;
-import com.cts.mint.analytics.model.WebAnalyticsPageData;
-import com.cts.mint.analytics.model.WebAnalyticsTagData;
-import com.cts.mint.common.FileUtils;
-import com.cts.mint.common.JsonReaderWriter;
-import com.cts.mint.common.ZipFileUtils;
-import com.cts.mint.common.model.Link;
-import com.cts.mint.crawler.model.CrawlConfig;
-import com.cts.mint.uitesting.model.UiTestingConstants;
-import com.cts.mint.util.DateTimeUtil;
-import com.cts.mint.util.FileListing;
-
-import edu.umass.cs.benchlab.har.HarEntries;
-import edu.umass.cs.benchlab.har.HarEntry;
-import edu.umass.cs.benchlab.har.HarHeader;
-import edu.umass.cs.benchlab.har.HarHeaders;
-import edu.umass.cs.benchlab.har.HarLog;
-import edu.umass.cs.benchlab.har.HarPage;
-import edu.umass.cs.benchlab.har.HarQueryParam;
-import edu.umass.cs.benchlab.har.HarRequest;
-import edu.umass.cs.benchlab.har.HarResponse;
-import edu.umass.cs.benchlab.har.HarWarning;
-import edu.umass.cs.benchlab.har.tools.HarFileReader;
-import edu.umass.cs.benchlab.har.tools.HarFileWriter;
+import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLDecoder;
+import java.util.*;
+import java.util.zip.ZipFile;
 
 public class WebAnalyticsUtils {
 
@@ -2916,8 +2882,7 @@ public class WebAnalyticsUtils {
 	/*******
 	 * For Status 200 value to be set added by 303780
 	 * 
-	 * @param model
-	 * @return
+	 *
 	 */
 	Map<String, Integer> getStatus200FromHarLogs(String harLogsDir, String applicationName) {
 		int status200 = 0;
@@ -3031,12 +2996,11 @@ public class WebAnalyticsUtils {
 	/*******
 	 * For Status 200 value to be set added by 303780
 	 * 
-	 * @param model
-	 * @return
+	 *
 	 */
 
 	public AnalyticsAuditSummary getSummaryView(String baseLineHarDirPath,
-			String testHarDirPath, int scheduleId, String applicationName, String excelFilePath, String sheetName, boolean generateReportsOnlyForRefererUrl, String tagSignatureJsonFilePath) {
+												String testHarDirPath, int scheduleId, String applicationName, String excelFilePath, String sheetName, boolean generateReportsOnlyForRefererUrl, String tagSignatureJsonFilePath) {
 		// int scheduleID = 0 ;
 		boolean transactionTestcaseFlag = false;
 		Map<String, BrokenUrlData> brokenUrlDataMap = new LinkedHashMap<String, BrokenUrlData>();
@@ -3089,8 +3053,8 @@ public class WebAnalyticsUtils {
 	 * For Populating Values into DB with the values of the detailed view
 	 * added by 303780
 	 * 
-	 * @param model
-	 * @return
+	 *
+	 *
 	 */
 	
 	public List<DetailedView> getDetailedView(String harDirPath, int scheduleId, String applicationName, String tagSignatureJsonFilePath) {

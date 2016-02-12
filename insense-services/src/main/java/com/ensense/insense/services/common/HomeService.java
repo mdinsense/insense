@@ -1,31 +1,17 @@
 package com.ensense.insense.services.common;
 
-import java.util.List;
+import com.ensense.insense.core.analytics.model.AnalyticsDetails;
+import com.ensense.insense.core.analytics.model.AnalyticsSummaryReportUi;
+import com.ensense.insense.data.common.entity.*;
+import com.ensense.insense.data.common.model.*;
+import com.ensense.insense.data.uitesting.entity.*;
+import com.ensense.insense.data.webservice.entity.WebserviceSuite;
+import com.ensense.insense.data.webservice.model.WebserviceSetupForm;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
-import com.cts.mint.analytics.model.AnalyticsDetails;
-import com.cts.mint.analytics.model.AnalyticsSummaryReportUi;
-import com.cts.mint.common.entity.BrowserType;
-import com.cts.mint.common.entity.FeedBack;
-import com.cts.mint.common.entity.SolutionType;
-import com.cts.mint.common.entity.SuitGroupXref;
-import com.cts.mint.common.entity.UsageReport;
-import com.cts.mint.common.model.ConfigProperty;
-import com.cts.mint.common.model.IdNamePair;
-import com.cts.mint.common.model.ReportStatus;
-import com.cts.mint.common.model.ScheduleStatus;
-import com.cts.mint.common.model.UsageReportForm;
-import com.cts.mint.common.model.UsageReportResult;
-import com.cts.mint.uitesting.entity.Schedule;
-import com.cts.mint.uitesting.entity.ScheduleExecution;
-import com.cts.mint.uitesting.entity.ScheduleScript;
-import com.cts.mint.uitesting.entity.ScheduleScriptXref;
-import com.cts.mint.uitesting.entity.Suit;
-import com.cts.mint.uitesting.entity.SuitBrokenReportsXref;
-import com.cts.mint.uitesting.entity.SuitTextImageXref;
-import com.cts.mint.webservice.entity.WebserviceSuite;
-import com.cts.mint.webservice.model.WebserviceSetupForm;
+
 
 public interface HomeService {
 	public List<Suit> getMintHomeCreatedByGroup(String userid, int groupid);

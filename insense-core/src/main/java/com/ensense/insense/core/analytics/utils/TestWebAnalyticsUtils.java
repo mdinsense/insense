@@ -1,13 +1,12 @@
 package com.ensense.insense.core.analytics.utils;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 public class TestWebAnalyticsUtils {
 

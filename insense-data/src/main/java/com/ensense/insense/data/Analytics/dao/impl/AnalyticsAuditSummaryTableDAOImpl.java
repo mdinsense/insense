@@ -1,13 +1,14 @@
 package com.ensense.insense.data.analytics.dao.impl;
 
+import com.ensense.insense.data.analytics.dao.AnalyticsAuditSummaryTableDAO;
+import com.ensense.insense.data.analytics.entity.AnalyticsAuditSummary;
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cts.mint.analytics.dao.AnalyticsAuditSummaryTableDAO;
-import com.cts.mint.analytics.entity.AnalyticsAuditSummary;
+
 
 
 @Service

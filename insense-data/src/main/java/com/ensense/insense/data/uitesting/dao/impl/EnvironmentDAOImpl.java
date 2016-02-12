@@ -1,9 +1,10 @@
 package com.ensense.insense.data.uitesting.dao.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.commons.lang.exception.ExceptionUtils;
+import com.ensense.insense.data.common.entity.EnvironmentCategoryGroupXref;
+import com.ensense.insense.data.uitesting.dao.EnvironmentDAO;
+import com.ensense.insense.data.uitesting.entity.*;
+import com.ensense.insense.data.uitesting.model.UiTestingSetupForm;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -12,16 +13,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.cts.mint.common.entity.EnvironmentCategoryGroupXref;
-import com.cts.mint.uitesting.dao.EnvironmentDAO;
-import com.cts.mint.uitesting.entity.Application;
-import com.cts.mint.uitesting.entity.EnvEnvironmentCategoryXref;
-import com.cts.mint.uitesting.entity.Environment;
-import com.cts.mint.uitesting.entity.EnvironmentCategory;
-import com.cts.mint.uitesting.entity.AppEnvEnvironmentCategoryXref;
-import com.cts.mint.uitesting.entity.EnvironmentLoginScript;
-import com.cts.mint.uitesting.model.ApplicationEnvironmentCategory;
-import com.cts.mint.uitesting.model.UiTestingSetupForm;
+import java.util.ArrayList;
+import java.util.List;
+
+
 
 @Service
 public class EnvironmentDAOImpl implements EnvironmentDAO {

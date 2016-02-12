@@ -1,12 +1,14 @@
 package uitesting;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
+import com.ensense.insense.core.utils.Constants;
+import com.ensense.insense.core.utils.UIFunctionalityType;
+import com.ensense.insense.core.utils.UserServiceUtils;
+import com.ensense.insense.data.common.entity.SuitGroupXref;
+import com.ensense.insense.data.common.entity.Users;
+import com.ensense.insense.data.uitesting.entity.Suit;
+import com.ensense.insense.data.uitesting.entity.SuitTextImageXref;
+import com.ensense.insense.services.common.HomeService;
+import com.ensense.insense.services.uiadmin.*;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,25 +20,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import uiadmin.form.schedule.TestingForm;
 
-import com.cts.mint.common.entity.SuitGroupXref;
-import com.cts.mint.common.entity.Users;
-import com.cts.mint.common.service.HomeService;
-import com.cts.mint.common.utils.Constants;
-import com.cts.mint.common.utils.UIFunctionalityType;
-import com.cts.mint.common.utils.UserServiceUtils;
-import com.cts.mint.uitesting.entity.Suit;
-import com.cts.mint.uitesting.entity.SuitTextImageXref;
-import com.cts.mint.uitesting.model.TestingForm;
-import com.cts.mint.uitesting.service.ApplicationConfigService;
-import com.cts.mint.uitesting.service.ApplicationModuleService;
-import com.cts.mint.uitesting.service.ApplicationService;
-import com.cts.mint.uitesting.service.EnvironmentService;
-import com.cts.mint.uitesting.service.ExcludeURLService;
-import com.cts.mint.uitesting.service.HtmlReportConfigService;
-import com.cts.mint.uitesting.service.IncludeURLService;
-import com.cts.mint.uitesting.service.LoginUserService;
-import com.cts.mint.uitesting.service.UiTestingService;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 
 @Controller
 public class FindImageOrTextController {

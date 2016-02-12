@@ -1,31 +1,14 @@
 package com.ensense.insense.data.webservice.dao;
 
+import com.ensense.insense.data.webservice.entity.*;
+import com.ensense.insense.data.webservice.model.WSReportsData;
+import com.ensense.insense.data.webservice.model.WSSuiteDetails;
+import com.ensense.insense.data.webservice.model.WebserviceSetupForm;
+import com.ensense.insense.data.webservice.model.WsDataset;
+import com.eviware.soapui.support.types.StringToStringMap;
+
 import java.util.List;
 import java.util.Map;
-
-import com.cts.mint.webservice.entity.WSBaseline;
-import com.cts.mint.webservice.entity.WSExecutionStatus;
-import com.cts.mint.webservice.entity.WSPingResults;
-import com.cts.mint.webservice.entity.WSPingSchedule;
-import com.cts.mint.webservice.entity.WSReports;
-import com.cts.mint.webservice.entity.WSResults;
-import com.cts.mint.webservice.entity.WSSchedule;
-import com.cts.mint.webservice.entity.WebserviceOperations;
-import com.cts.mint.webservice.entity.WebserviceSuite;
-import com.cts.mint.webservice.entity.WebserviceSuiteService;
-import com.cts.mint.webservice.entity.Webservices;
-import com.cts.mint.webservice.entity.WebservicesPingTest;
-import com.cts.mint.webservice.entity.WsEndpointDetails;
-import com.cts.mint.webservice.entity.WsOperationHeaderParameters;
-import com.cts.mint.webservice.entity.WsOperationParameter;
-import com.cts.mint.webservice.entity.WsOperationParameterValue;
-import com.cts.mint.webservice.entity.WsOperationXmlParameter;
-import com.cts.mint.webservice.entity.WsParameterAndSetId;
-import com.cts.mint.webservice.model.WSReportsData;
-import com.cts.mint.webservice.model.WSSuiteDetails;
-import com.cts.mint.webservice.model.WebserviceSetupForm;
-import com.cts.mint.webservice.model.WsDataset;
-import com.eviware.soapui.support.types.StringToStringMap;
 
 public interface WebserviceTestingDAO {
 

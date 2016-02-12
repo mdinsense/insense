@@ -1,16 +1,15 @@
 package com.ensense.insense.data.analytics.dao;
 
+import com.ensense.insense.data.analytics.entity.AnalyticsAuditSummary;
+import com.ensense.insense.data.analytics.entity.DashboardsHomeDetails;
+import com.ensense.insense.data.analytics.entity.DetailedView;
+import com.ensense.insense.data.common.model.AnalyticsAuditSummaryReportDates;
+import com.ensense.insense.data.transaction.entity.TestCaseFileUpload;
+import com.ensense.insense.data.uitesting.entity.LoginUserDetails;
+import com.ensense.insense.data.uitesting.entity.Reports;
+import com.ensense.insense.data.uitesting.entity.Results;
+
 import java.util.List;
-
-import com.cts.mint.analytics.entity.AnalyticsAuditSummary;
-import com.cts.mint.analytics.entity.DashboardsHomeDetails;
-import com.cts.mint.analytics.entity.DetailedView;
-import com.cts.mint.analytics.model.AnalyticsAuditSummaryReportDates;
-import com.cts.mint.uitesting.entity.LoginUserDetails;
-import com.cts.mint.uitesting.entity.Reports;
-import com.cts.mint.uitesting.entity.Results;
-import com.cts.mint.uitesting.transaction.entity.TestCaseFileUpload;
-
 
 public interface AnalyticsDashboardDAO {
 

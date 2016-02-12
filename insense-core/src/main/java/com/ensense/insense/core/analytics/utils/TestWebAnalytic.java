@@ -1,24 +1,13 @@
 package com.ensense.insense.core.analytics.utils;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import com.ensense.insense.core.analytics.model.*;
+import com.ensense.insense.core.generated.jaxb.analytics.detailedview.DetailedViewWebAnalyticsTagData;
+import com.ensense.insense.core.utils.DateTimeUtil;
+import com.ensense.insense.core.utils.JsonReaderWriter;
+import com.ensense.insense.data.common.model.Link;
+import com.ensense.insense.services.common.utils.UiTestingConstants;
 
-import com.cts.mint.analytics.model.AnalyticsSummaryReport;
-import com.cts.mint.analytics.model.AnalyticsTagDetail;
-import com.cts.mint.analytics.model.BrokenUrlData;
-import com.cts.mint.analytics.model.SamePagesBrokenUrlDataStore;
-import com.cts.mint.analytics.model.SamePagesDataStore;
-import com.cts.mint.analytics.model.WebAnalyticsPageData;
-import com.cts.mint.analytics.model.WebAnalyticsTagData;
-import com.cts.mint.common.JsonReaderWriter;
-import com.cts.mint.common.model.Link;
-import com.cts.mint.generated.jaxb.analytics.detailedview.DetailedViewWebAnalyticsTagData.DetailedViewTags;
-import com.cts.mint.generated.jaxb.analytics.detailedview.DetailedViewWebAnalyticsTagData.DetailedViewTags.TagVariablesData;
-import com.cts.mint.uitesting.model.UiTestingConstants;
-import com.cts.mint.util.DateTimeUtil;
+import java.util.*;
 
 public class TestWebAnalytic {
 	public static void main(String args[]){
@@ -208,7 +197,7 @@ public class TestWebAnalytic {
 				analyticsTagDetail.getTagPresentUrl().add(pageData.getPageUrl());
 				
 				
-				DetailedViewTags entrylist = new DetailedViewTags();
+				DetailedViewWebAnalyticsTagData.DetailedViewTags entrylist = new DetailedViewWebAnalyticsTagData.DetailedViewTags();
 				entrylist.setTagtype(webAnalyticsTagData.getTagName());
 				entrylist.setTagUrl(webAnalyticsTagData.getTagUrl() );
 				entrylist.setTagDataKey(webAnalyticsTagData.getTagDataKey());
@@ -220,7 +209,7 @@ public class TestWebAnalytic {
 					
 					String data=it1.next().toString();
 					
-					TagVariablesData tagVarNameValue = new TagVariablesData();
+					DetailedViewWebAnalyticsTagData.DetailedViewTags.TagVariablesData tagVarNameValue = new DetailedViewWebAnalyticsTagData.DetailedViewTags.TagVariablesData();
 					tagVarNameValue.setName(data);
 					tagVarNameValue.setValue(tagname.get(data));
 					

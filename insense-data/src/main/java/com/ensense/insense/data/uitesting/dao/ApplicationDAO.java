@@ -1,10 +1,10 @@
 package com.ensense.insense.data.uitesting.dao;
 
+import com.ensense.insense.data.common.entity.ApplicationGroupReference;
+import com.ensense.insense.data.uitesting.entity.Application;
+
 import java.util.List;
 import java.util.Map;
-
-import com.cts.mint.common.entity.ApplicationGroupReference;
-import com.cts.mint.uitesting.entity.Application;
 
 public interface ApplicationDAO {
 

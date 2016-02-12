@@ -1,19 +1,8 @@
 package com.ensense.insense.data.uitesting.entity;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
+import com.ensense.insense.data.common.util.JsonReaderWriter;
+import com.ensense.insense.data.common.util.MintFileUtils;
+import com.ensense.insense.data.uitesting.model.ModuleType;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
@@ -21,9 +10,10 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
-import com.cts.mint.common.JsonReaderWriter;
-import com.cts.mint.common.MintFileUtils;
-import com.cts.mint.common.utils.Constants;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "ApplicationModuleXref")
@@ -248,7 +238,7 @@ public class ApplicationModuleXref implements Serializable {
 	public String getTestCaseDirectory() {
 		String filePath = null;
 		try {
-			if (this.getModuleTypeId() == Constants.ModuleType.TRANSACTION) {
+			if (this.getModuleTypeId() == ModuleType.TRANSACTION) {
 				if (this.getTransactionTestCaseList() != null
 						&& this.getTransactionTestCaseList().size() > 0) {
 					filePath = this.getTransactionTestCaseList().get(0)

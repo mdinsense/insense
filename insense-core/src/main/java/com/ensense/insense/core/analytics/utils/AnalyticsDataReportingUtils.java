@@ -1,38 +1,16 @@
 package com.ensense.insense.core.analytics.utils;
 
+import com.ensense.insense.core.analytics.model.*;
+import com.ensense.insense.core.utils.ErrorType;
+import org.apache.log4j.Logger;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.util.CellRangeAddress;
+import org.apache.poi.xssf.streaming.SXSSFWorkbook;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.apache.log4j.Logger;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.IndexedColors;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.util.CellRangeAddress;
-import org.apache.poi.xssf.streaming.SXSSFSheet;
-import org.apache.poi.xssf.streaming.SXSSFWorkbook;
-
-import com.cts.mint.analytics.model.AnalyticSummaryDetails;
-import com.cts.mint.analytics.model.AnalyticsDetails;
-import com.cts.mint.analytics.model.BrokenUrlData;
-import com.cts.mint.analytics.model.SamePagesBrokenUrlDataStore;
-import com.cts.mint.analytics.model.SamePagesDataStore;
-import com.cts.mint.analytics.model.TextImageReportData;
-import com.cts.mint.analytics.model.WebAnalyticsPageData;
-import com.cts.mint.analytics.model.WebAnalyticsTagData;
-import com.cts.mint.common.JsonReaderWriter;
-import com.cts.mint.uitesting.model.UiTestingConstants;
-import com.cts.mint.util.DateTimeUtil;
-import com.cts.mint.util.ErrorType;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.*;
 
 @JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
 public class AnalyticsDataReportingUtils {
@@ -78,7 +56,7 @@ public class AnalyticsDataReportingUtils {
 	public AnalyticsDataReportingUtils(){
 		
 	}
-	public Map<String, AnalyticsSummaryReportData> writeWebAnalyticsAppsSummaryToExcel(
+	Map<String, AnalyticsSummaryReportData> writeWebAnalyticsAppsSummaryToExcel(
 			List<SamePagesDataStore> samePagesDataStoreList,
 			Map<String, BrokenUrlData> brokenUrlDataMap,
 			Map<String, Integer> status200Map) {

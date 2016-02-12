@@ -1,8 +1,9 @@
 package com.ensense.insense.core.utils;
 
-import java.io.File;
-import java.net.URL;
 
+import com.ensense.insense.data.common.model.ScheduleDetails;
+import com.ensense.insense.services.common.utils.CommonUtils;
+import com.ensense.insense.services.common.utils.FileDirectoryUtil;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Proxy;
@@ -14,13 +15,11 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.openqa.selenium.safari.SafariDriver;
-import org.openqa.selenium.safari.SafariOptions;
 import org.springframework.context.MessageSource;
 
-import com.cts.mint.common.utils.CommonUtils;
-import com.cts.mint.uitesting.model.ScheduleDetails;
+import java.io.File;
+import java.net.URL;
 
 
 

@@ -1,6 +1,5 @@
 package com.ensense.insense.core.analytics.utils;
 
-import com.cts.mint.analytics.common.Tags;
 public class AnalyticsSummaryReportData {
 	
 	public int getBaseLineTotalPagesCount() {

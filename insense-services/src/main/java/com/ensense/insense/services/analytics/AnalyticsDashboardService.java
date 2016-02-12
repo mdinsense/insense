@@ -1,17 +1,17 @@
 
 package com.ensense.insense.services.analytics;
 
-import java.util.List;
+import com.ensense.insense.core.analytics.model.AnalyticsAuditSummaryReportDates;
+import com.ensense.insense.core.analytics.model.DetailedViewContents;
+import com.ensense.insense.core.generated.jaxb.analytics.summarydashboard.SummaryDashBoardData;
+import com.ensense.insense.data.analytics.entity.AnalyticsAuditSummary;
+import com.ensense.insense.data.common.model.ScheduleDetails;
+import com.ensense.insense.data.transaction.entity.TestCaseFileUpload;
+import com.ensense.insense.data.uitesting.entity.LoginUserDetails;
+import com.ensense.insense.data.uitesting.entity.Reports;
+import com.ensense.insense.data.uitesting.entity.Results;
 
-import com.cts.mint.analytics.model.AnalyticsAuditSummaryReportDates;
-import com.cts.mint.analytics.model.DetailedViewContents;
-import com.cts.mint.generated.jaxb.analytics.summarydashboard.SummaryDashBoardData;
-import com.cts.mint.uitesting.entity.LoginUserDetails;
-import com.cts.mint.uitesting.entity.Reports;
-import com.cts.mint.uitesting.entity.Results;
-import com.cts.mint.uitesting.model.ScheduleDetails;
-import com.cts.mint.uitesting.transaction.entity.TestCaseFileUpload;
-import com.cts.mint.analytics.entity.AnalyticsAuditSummary;
+import java.util.List;
 
 
 /**

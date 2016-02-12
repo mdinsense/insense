@@ -1,6 +1,6 @@
 package uiadmin.form.schedule;
 
-import com.cts.mint.uitesting.entity.TransactionTestCase;
+import com.ensense.insense.data.uitesting.entity.TransactionTestCase;
 
 public class ScriptDownloadForm {
 	

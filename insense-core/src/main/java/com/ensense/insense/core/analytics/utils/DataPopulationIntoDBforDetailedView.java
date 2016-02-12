@@ -1,5 +1,11 @@
 package com.ensense.insense.core.analytics.utils;
 
+import com.ensense.insense.core.analytics.model.WebAnalyticsTagData;
+import com.ensense.insense.core.generated.jaxb.analytics.detailedview.DetailedViewWebAnalyticsTagData;
+import com.ensense.insense.core.utils.PropertyReader;
+import com.ensense.insense.data.analytics.entity.DetailedView;
+import org.apache.log4j.Logger;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,25 +13,16 @@ import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
-
-import com.cts.mint.analytics.entity.DetailedView;
-import com.cts.mint.analytics.model.WebAnalyticsTagData;
-import com.cts.mint.generated.jaxb.analytics.detailedview.DetailedViewWebAnalyticsTagData;
-import com.cts.mint.generated.jaxb.analytics.detailedview.DetailedViewWebAnalyticsTagData.DetailedViewTags;
-import com.cts.mint.generated.jaxb.analytics.detailedview.DetailedViewWebAnalyticsTagData.DetailedViewTags.TagVariablesData;
-import com.cts.mint.util.PropertyReader;
-
 public class DataPopulationIntoDBforDetailedView {
 
 	private static final Logger logger = Logger
 			.getLogger(DataPopulationIntoDBforDetailedView.class);
 
-	/*******For  Populating Values into DB with the values of the detailed view
+	/* ******For  Populating Values into DB with the values of the detailed view
 	 * added by 303780
 	 * @param model
 	 * @return*/
-	
+
 	public String DatapopulateforDetailedView(Map<String, WebAnalyticsTagData> webAnalyticsAppsSummary)
 	{
 
@@ -38,7 +35,7 @@ public class DataPopulationIntoDBforDetailedView {
 		while (it.hasNext()) {
 			firstKey = it.next().toString();
 			WebAnalyticsTagData webAnalyticsTagData = webAnalyticsAppsSummary.get(firstKey);
-			DetailedViewTags entrylist = new DetailedViewTags();
+			DetailedViewWebAnalyticsTagData.DetailedViewTags entrylist = new DetailedViewWebAnalyticsTagData.DetailedViewTags();
 			entrylist.setTagtype(webAnalyticsTagData.getTagName());
 			entrylist.setTagUrl(webAnalyticsTagData.getTagUrl() );
 			entrylist.setTagDataKey(webAnalyticsTagData.getTagDataKey());
@@ -50,7 +47,8 @@ public class DataPopulationIntoDBforDetailedView {
 				
 				String data=it1.next().toString();
 				
-				TagVariablesData tagVarNameValue = new TagVariablesData();
+				DetailedViewWebAnalyticsTagData.DetailedViewTags.TagVariablesData tagVarNameValue;
+				tagVarNameValue = new DetailedViewWebAnalyticsTagData.DetailedViewTags.TagVariablesData();
 				tagVarNameValue.setName(data);
 				tagVarNameValue.setValue(tagname.get(data));
 				
@@ -68,7 +66,7 @@ public class DataPopulationIntoDBforDetailedView {
 	}
 	
 	
-	/*******For  Populating Values into DB with the values of the detailed view
+	/* ******For  Populating Values into DB with the values of the detailed view
 	 * added by 303780
 	 * @param model
 	 * @return*/

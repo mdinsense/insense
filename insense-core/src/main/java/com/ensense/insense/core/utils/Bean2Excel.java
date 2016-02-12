@@ -1,22 +1,14 @@
 package com.ensense.insense.core.utils;
 
+import org.apache.commons.beanutils.PropertyUtils;
+import org.apache.poi.hssf.usermodel.*;
+import org.apache.poi.hssf.util.HSSFCellUtil;
+import org.apache.poi.ss.util.CellUtil;
+
 import java.io.OutputStream;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.commons.beanutils.PropertyUtils;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFCellStyle;
-import org.apache.poi.hssf.usermodel.HSSFDataFormat;
-import org.apache.poi.hssf.usermodel.HSSFFont;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.hssf.util.HSSFCellUtil;
-import org.apache.poi.ss.util.CellUtil;
-
-import com.cts.mint.common.utils.Constants.FormatType;
- 
 public class Bean2Excel {
     private HSSFWorkbook workbook;
     private HSSFFont boldFont;
@@ -43,7 +35,7 @@ public class Bean2Excel {
             // Loop over all the column beans and populate the report headers
             for (int i = 0; i < numCols; i++) {
                 // Get the header text from the bean and write it to the cell
-                writeCell(row, i, columns[i].getHeader(), FormatType.TEXT,
+                writeCell(row, i, columns[i].getHeader(), Constants.FormatType.TEXT,
                 		columns[i].getHeaderColor(), this.boldFont);
             }
  
@@ -86,7 +78,7 @@ public class Bean2Excel {
     }
  
     private void writeCell(HSSFRow row, int col, Object value,
-            FormatType formatType, Short bgColor, HSSFFont font)
+                           Constants.FormatType formatType, Short bgColor, HSSFFont font)
             throws Exception {
  
         HSSFCell cell = HSSFCellUtil.createCell(row, col, null);

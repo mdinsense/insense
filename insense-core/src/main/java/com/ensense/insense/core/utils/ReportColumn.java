@@ -1,18 +1,17 @@
 package com.ensense.insense.core.utils;
 
 import org.apache.poi.hssf.usermodel.HSSFFont;
+import com.ensense.insense.core.utils.Constants.FormatType;
 
-import com.cts.mint.common.utils.Constants.FormatType;
- 
 public class ReportColumn {
     private String m_method;
     private String m_header;
-    private FormatType m_type;
+    private Constants.FormatType m_type;
     private HSSFFont m_font;
     private Short m_color;
     private Short header_color;
  
-    public ReportColumn(String method, String header, FormatType type,
+    public ReportColumn(String method, String header, Constants.FormatType type,
             HSSFFont font, Short color, Short hColor) {
         this.m_method = method;
         this.m_header = header;

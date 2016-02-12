@@ -1,10 +1,14 @@
 package com.ensense.insense.data.common.dao.impl;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-
+import com.ensense.insense.data.common.dao.HomeDAO;
+import com.ensense.insense.data.common.entity.*;
+import com.ensense.insense.data.common.model.ExecutionStatus;
+import com.ensense.insense.data.common.model.ScheduleExecutionDetail;
+import com.ensense.insense.data.common.model.UsageReportConstants;
+import com.ensense.insense.data.common.model.UsageReportForm;
+import com.ensense.insense.data.common.util.DateTimeUtil;
+import com.ensense.insense.data.uitesting.entity.*;
+import com.ensense.insense.data.webservice.entity.WebserviceSuite;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
@@ -14,27 +18,10 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cts.mint.common.dao.HomeDAO;
-import com.cts.mint.common.entity.BrowserType;
-import com.cts.mint.common.entity.FeedBack;
-import com.cts.mint.common.entity.MintProperties;
-import com.cts.mint.common.entity.SolutionType;
-import com.cts.mint.common.entity.SuitGroupXref;
-import com.cts.mint.common.entity.UsageReport;
-import com.cts.mint.common.model.UsageReportForm;
-import com.cts.mint.common.utils.Constants.UsageReportConstants;
-import com.cts.mint.common.utils.ExecutionStatus;
-import com.cts.mint.uitesting.entity.Schedule;
-import com.cts.mint.uitesting.entity.ScheduleExecution;
-import com.cts.mint.uitesting.entity.ScheduleScript;
-import com.cts.mint.uitesting.entity.ScheduleScriptXref;
-import com.cts.mint.uitesting.entity.Suit;
-import com.cts.mint.uitesting.model.ScheduleExecutionDetail;
-import com.cts.mint.util.DateTimeUtil;
-import com.cts.mint.webservice.entity.WebserviceSuite;
-import com.cts.mint.webservice.entity.WebserviceSuiteParamSetTable;
-import com.cts.mint.webservice.entity.WebserviceSuiteService;
-import com.cts.mint.webservice.model.WebserviceSetupForm;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
 
 @Service
 public class HomeDAOImpl implements HomeDAO {
@@ -928,7 +915,7 @@ public class HomeDAOImpl implements HomeDAO {
 
 	}
 
-	@SuppressWarnings({ "unchecked", "unused" })
+	/*@SuppressWarnings({ "unchecked", "unused" })
 	@Override
 	public List<WebserviceSetupForm> getSavedWsSuitesParams(
 			int webserviceSuiteId) {
@@ -983,7 +970,7 @@ public class HomeDAOImpl implements HomeDAO {
 		}
 		return listWebserviceSetupForm;
 	}
-
+*/
 	@Override
 	public boolean saveScheduleScript(ScheduleScript scheduleScript) {
 		logger.debug("Entry: saveScheduleScript");

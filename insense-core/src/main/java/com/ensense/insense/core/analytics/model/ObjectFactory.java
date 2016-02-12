@@ -8,9 +8,9 @@
 
 package com.ensense.insense.core.analytics.model;
 
+import com.ensense.insense.core.analytics.model.HarReports.PageDetail.TagData;
+
 import javax.xml.bind.annotation.XmlRegistry;
-import com.cts.mint.analytics.model.HarReports.PageDetail;
-import com.cts.mint.analytics.model.HarReports.PageDetail.TagData;
 
 
 /**
@@ -39,11 +39,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PageDetail }
+     * Create an instance of
      * 
      */
-    public PageDetail createHarReportsPageDetail() {
-        return new PageDetail();
+    public HarReports.PageDetail createHarReportsPageDetail() {
+        return new HarReports.PageDetail();
     }
 
     /**
@@ -58,7 +58,7 @@ public class ObjectFactory {
      * Create an instance of {@link TagData }
      * 
      */
-    public TagData createHarReportsPageDetailTagData() {
+    public HarReports.PageDetail.TagData createHarReportsPageDetailTagData() {
         return new TagData();
     }
 

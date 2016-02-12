@@ -1,9 +1,9 @@
 package com.ensense.insense.core.utils;
 
-import java.io.File;
-
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
 
 public class JsonReaderWriter<T> {
 	//private T type;

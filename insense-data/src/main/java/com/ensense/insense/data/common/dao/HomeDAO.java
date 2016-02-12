@@ -1,23 +1,13 @@
 package com.ensense.insense.data.common.dao;
 
+import com.ensense.insense.data.common.entity.*;
+import com.ensense.insense.data.common.model.ScheduleExecutionDetail;
+import com.ensense.insense.data.common.model.UsageReportForm;
+import com.ensense.insense.data.uitesting.entity.*;
+import com.ensense.insense.data.webservice.entity.WebserviceSuite;
+
 import java.util.Date;
 import java.util.List;
-
-import com.cts.mint.common.entity.BrowserType;
-import com.cts.mint.common.entity.FeedBack;
-import com.cts.mint.common.entity.MintProperties;
-import com.cts.mint.common.entity.SolutionType;
-import com.cts.mint.common.entity.SuitGroupXref;
-import com.cts.mint.common.entity.UsageReport;
-import com.cts.mint.common.model.UsageReportForm;
-import com.cts.mint.uitesting.entity.Schedule;
-import com.cts.mint.uitesting.entity.ScheduleExecution;
-import com.cts.mint.uitesting.entity.ScheduleScript;
-import com.cts.mint.uitesting.entity.ScheduleScriptXref;
-import com.cts.mint.uitesting.entity.Suit;
-import com.cts.mint.uitesting.model.ScheduleExecutionDetail;
-import com.cts.mint.webservice.entity.WebserviceSuite;
-import com.cts.mint.webservice.model.WebserviceSetupForm;
 
 public interface HomeDAO {
 	public List<Suit> getUiRegressionSuitForGroup(int groupId);
@@ -46,7 +36,7 @@ public interface HomeDAO {
 	
 	public boolean deleteSuitGroupXref(int suitId);
 	
-	public boolean addSuitGroupXref(SuitGroupXref suitGroup); 
+	public boolean addSuitGroupXref(SuitGroupXref suitGroup);
 	
 	public List<Suit> getManageSuitsForGroup(int groupId);
 	
@@ -79,8 +69,8 @@ public interface HomeDAO {
 
 	public WebserviceSuite getSavedWsSuits(int webserviceSuiteId);
 
-	public List<WebserviceSetupForm> getSavedWsSuitesParams(
-			int webserviceSuiteId);
+	//public List<WebserviceSetupForm> getSavedWsSuitesParams(
+	//		int webserviceSuiteId);
 
 	public boolean saveScheduleScript(ScheduleScript scheduleScript);
 	

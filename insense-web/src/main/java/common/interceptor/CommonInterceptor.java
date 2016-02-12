@@ -1,15 +1,11 @@
 package common.interceptor;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.ensense.insense.core.utils.PropertyFileReader;
+import com.ensense.insense.core.utils.UserServiceUtils;
+import com.ensense.insense.data.common.entity.Users;
+import com.ensense.insense.data.common.model.MenuAccess;
+import com.ensense.insense.services.common.MenuService;
+import com.ensense.insense.services.common.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -17,12 +13,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cts.mint.common.entity.Users;
-import com.cts.mint.common.model.MenuAccess;
-import com.cts.mint.common.service.MenuService;
-import com.cts.mint.common.service.UserService;
-import com.cts.mint.common.utils.PropertyFileReader;
-import com.cts.mint.common.utils.UserServiceUtils;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class CommonInterceptor implements HandlerInterceptor {

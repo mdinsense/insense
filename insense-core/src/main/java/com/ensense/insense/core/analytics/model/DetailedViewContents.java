@@ -1,6 +1,8 @@
 package com.ensense.insense.core.analytics.model;
 
-import com.cts.mint.generated.jaxb.analytics.detailedview.DetailedViewWebAnalyticsTagData;;
+
+import com.ensense.insense.core.generated.jaxb.analytics.detailedview.DetailedViewWebAnalyticsTagData;
+
 /**
  * The class for the detailed_view_table database table based on newer xml structure.
  *  This has all columns and the unmarshalled xml column

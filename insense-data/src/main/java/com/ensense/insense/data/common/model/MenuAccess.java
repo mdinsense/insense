@@ -1,10 +1,10 @@
 package com.ensense.insense.data.common.model;
 
+import com.ensense.insense.data.common.entity.FunctionalityPermission;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.cts.mint.common.entity.FunctionalityPermission;
 
 public class MenuAccess implements Serializable {
 	/**

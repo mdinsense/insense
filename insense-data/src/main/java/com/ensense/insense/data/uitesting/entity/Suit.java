@@ -1,23 +1,12 @@
 package com.ensense.insense.data.uitesting.entity;
 
-import java.io.Serializable;
+import com.ensense.insense.data.common.entity.Users;
+import org.hibernate.annotations.*;
 
-import javax.persistence.Column;
+import javax.persistence.*;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
-
-import com.cts.mint.common.entity.Users;
+import java.io.Serializable;
 
 /**
  * The persistent class for the test_schedule_table database table.

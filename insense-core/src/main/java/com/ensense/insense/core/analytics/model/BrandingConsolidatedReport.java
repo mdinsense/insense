@@ -1,5 +1,7 @@
 package com.ensense.insense.core.analytics.model;
 
+import com.ensense.insense.data.uitesting.model.TextImageReportData;
+
 public class BrandingConsolidatedReport {
 	private TextImageReportData baselineBrandingReportData;
 	private TextImageReportData currentRunBrandingReportData;

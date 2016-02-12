@@ -1,21 +1,18 @@
 package com.ensense.insense.core.utils;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
+import com.ensense.insense.core.usermanagement.FunctionalityForGroup;
+import com.ensense.insense.data.common.entity.FunctionalityPermission;
+import com.ensense.insense.data.common.entity.Users;
+import com.ensense.insense.data.common.model.ManageUsers;
+import com.ensense.insense.data.common.model.MenuAccess;
+import com.ensense.insense.data.common.model.MintMenu;
+import com.ensense.insense.services.common.MenuService;
+import com.ensense.insense.services.common.UserService;
 import org.apache.log4j.Logger;
 
-import com.cts.mint.common.entity.FunctionalityPermission;
-import com.cts.mint.common.entity.Users;
-import com.cts.mint.common.model.ManageUsers;
-import com.cts.mint.common.model.MenuAccess;
-import com.cts.mint.common.model.MintMenu;
-import com.cts.mint.common.service.MenuService;
-import com.cts.mint.common.service.UserService;
-import com.cts.mint.common.utils.Constants.Functionality;
-import com.cts.mint.usermanagement.model.FunctionalityForGroup;
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserServiceUtils {
 	private static Logger logger = Logger.getLogger(UserServiceUtils.class);
@@ -118,7 +115,7 @@ public class UserServiceUtils {
 	}
 
 	public static void addUserDetailsToSession(HttpServletRequest request,
-			UserService userService, MenuService menuService) {
+											   UserService userService, MenuService menuService) {
 		String userName = getUserNameFromSession(request);
 		String userGroupName = "";
 		Users mintUser = userService.getMintUser(userName);

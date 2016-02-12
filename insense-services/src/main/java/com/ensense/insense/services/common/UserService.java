@@ -1,13 +1,13 @@
 package com.ensense.insense.services.common;
 
-import java.util.List;
+import com.ensense.insense.data.common.entity.ApplicationGroupReference;
+import com.ensense.insense.data.common.entity.EnvironmentCategoryGroupXref;
+import com.ensense.insense.data.common.entity.Groups;
+import com.ensense.insense.data.common.entity.Users;
+import com.ensense.insense.data.common.model.ManageUsers;
+import com.ensense.insense.data.common.model.MenuAccess;
 
-import com.cts.mint.common.entity.ApplicationGroupReference;
-import com.cts.mint.common.entity.EnvironmentCategoryGroupXref;
-import com.cts.mint.common.entity.Groups;
-import com.cts.mint.common.entity.Users;
-import com.cts.mint.common.model.ManageUsers;
-import com.cts.mint.common.model.MenuAccess;
+import java.util.List;
 
 
 public interface UserService {

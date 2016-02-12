@@ -1,22 +1,19 @@
 package com.ensense.insense.core.analytics.utils;
 
+import com.ensense.insense.core.analytics.model.*;
+import com.ensense.insense.core.utils.DateTimeUtil;
+import com.ensense.insense.core.utils.JsonReaderWriter;
+import com.ensense.insense.services.common.utils.UiTestingConstants;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.apache.log4j.Logger;
+
 import java.io.File;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.apache.log4j.Logger;
 
-import com.cts.mint.analytics.model.AnalyticSummaryDetails;
-import com.cts.mint.analytics.model.AnalyticsDetails;
-import com.cts.mint.analytics.model.SamePagesDataStore;
-import com.cts.mint.analytics.model.WebAnalyticsPageData;
-import com.cts.mint.analytics.model.WebAnalyticsTagData;
-import com.cts.mint.common.JsonReaderWriter;
-import com.cts.mint.uitesting.model.UiTestingConstants;
-import com.cts.mint.util.DateTimeUtil;
 
 public class AnalyticsReportsSerializeUtils {
 	

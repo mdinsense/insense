@@ -1,10 +1,9 @@
 package com.ensense.insense.data.uitesting.dao.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import com.ensense.insense.data.common.entity.ApplicationGroupReference;
+import com.ensense.insense.data.uitesting.dao.ApplicationDAO;
+import com.ensense.insense.data.uitesting.entity.AppEnvEnvironmentCategoryXref;
+import com.ensense.insense.data.uitesting.entity.Application;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
@@ -14,11 +13,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.cts.mint.common.entity.ApplicationGroupReference;
-import com.cts.mint.uitesting.dao.ApplicationDAO;
-import com.cts.mint.uitesting.entity.Application;
-import com.cts.mint.uitesting.entity.AppEnvEnvironmentCategoryXref;
-import com.cts.mint.uitesting.entity.Schedule;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class ApplicationDAOImpl implements ApplicationDAO {

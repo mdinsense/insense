@@ -1,8 +1,10 @@
 package com.ensense.insense.data.uitesting.dao;
 
+import com.ensense.insense.data.uitesting.entity.HtmlReportsConfig;
+
 import java.util.List;
 
-import com.cts.mint.uitesting.entity.HtmlReportsConfig;
+;
 
 public interface HtmlReportConfigDAO {
 	boolean addHtmlReportsConfig(HtmlReportsConfig htmlReportsConfig);

@@ -1,12 +1,10 @@
 package com.ensense.insense.services.common;
 
-import java.util.List;
 
-import com.cts.mint.common.entity.FunctionalityPermission;
-import com.cts.mint.common.entity.Menu;
-import com.cts.mint.miscellaneous.entity.MiscellaneousTool;
-import com.cts.mint.usermanagement.form.UserManagementForm;
-import com.cts.mint.usermanagement.model.FunctionalityForGroup;
+import com.ensense.insense.core.usermanagement.FunctionalityForGroup;
+import uiadmin.form.UserManagementForm;
+
+import java.util.List;
 
 public interface MenuService {
 	public int getMenuIdForAction(String menuAction);

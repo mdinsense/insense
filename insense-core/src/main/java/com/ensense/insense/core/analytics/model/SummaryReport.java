@@ -1,9 +1,9 @@
 package com.ensense.insense.core.analytics.model;
 
+import com.ensense.insense.data.common.model.Link;
+
 import java.io.Serializable;
 import java.util.List;
-
-import com.cts.mint.common.model.Link;
 
 
 public class SummaryReport implements Serializable{

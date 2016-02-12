@@ -1,22 +1,15 @@
 package com.ensense.insense.services.uiadmin.impl;
 
-import java.util.List;
-
+import com.ensense.insense.data.common.entity.EnvironmentCategoryGroupXref;
+import com.ensense.insense.data.uitesting.dao.EnvironmentDAO;
+import com.ensense.insense.data.uitesting.entity.*;
+import com.ensense.insense.services.uiadmin.EnvironmentService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.cts.mint.common.entity.EnvironmentCategoryGroupXref;
-import com.cts.mint.uitesting.dao.EnvironmentDAO;
-import com.cts.mint.uitesting.entity.EnvEnvironmentCategoryXref;
-import com.cts.mint.uitesting.entity.Environment;
-import com.cts.mint.uitesting.entity.EnvironmentCategory;
-import com.cts.mint.uitesting.entity.AppEnvEnvironmentCategoryXref;
-import com.cts.mint.uitesting.entity.EnvironmentLoginScript;
-import com.cts.mint.uitesting.model.ApplicationEnvironmentCategory;
-import com.cts.mint.uitesting.model.UiTestingSetupForm;
-import com.cts.mint.uitesting.service.EnvironmentService;
+import java.util.List;
 
 @Service
 public class EnvironmentServiceImpl implements EnvironmentService {

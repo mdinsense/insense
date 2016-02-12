@@ -128,18 +128,7 @@ public class Constants {
 		public static final String CONFIGKEY_FILE_LOCKED = "mint.file.suit.email.filelocked";
 	}
 
-	public interface KEYS {
-		public static final String DOT = ".";
-		public static final String COMMA = ",";
-		public static final String HASH = "#";
-		public static final String TILDE = "~";
-		public static final String BLANK = "";
-		public static final String F_SLASH = "/";
-		public static final String B_SLASH_DOUBLE = "\\";
-		public static final String SEMICOLON = ";";
-		public static final String EQUALS = "=";
-		public static final String UNDERSCORE = "_";
-	}
+
 
 	public interface SCHEDULER {
 		public static final char BY_WEEKLY = 'W';
@@ -374,22 +363,9 @@ public class Constants {
         TEXT, INTEGER, FLOAT, DATE, MONEY, PERCENTAGE
     }
     
-    public interface UsageReportConstants {
-    	public static final String ALL = "0"; 
-    	public static final String ALL_ENVIRONMENT = "1";
-    	public static final int DETAILED_REPORT = 2;
-    	public static final int REPORT_CHART = 1;
-    	public static final int FUNCTIONALITY = 3;
-    	public static final int ENVIRONMENT = 2;
-    	public static final int GROUP = 1;
-     	public static final String FUNCTIONALITY_ID = "functionalityTypeId";
-    	public static final String ENVIRONMENT_ID = "environmentId";
-    	public static final String GROUP_ID = "groupId";
-    }
+
     
-    public interface ModuleType {
-    	public static final int TRANSACTION = 3;
-    }
+
     
     public interface FILE {
     	public static String CLASS = ".class";

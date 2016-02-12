@@ -1,8 +1,5 @@
 package com.ensense.insense.core.webservice.model;
 
-import java.util.List;
-import java.util.Map;
-
 public class WSSuiteParams {
 
 	private int serviceId;

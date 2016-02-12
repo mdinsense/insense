@@ -1,13 +1,12 @@
 package com.ensense.insense.data.common.model;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
+import com.ensense.insense.data.uitesting.model.TextImageReportData;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import com.cts.mint.analytics.model.TextImageReportData;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Link implements Serializable{
 	/**

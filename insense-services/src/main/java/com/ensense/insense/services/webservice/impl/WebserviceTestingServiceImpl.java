@@ -1,41 +1,24 @@
 package com.ensense.insense.services.webservice.impl;
 
+import com.ensense.insense.data.webservice.dao.WebserviceTestingDAO;
+import com.ensense.insense.data.webservice.entity.*;
+import com.ensense.insense.data.webservice.model.WSReportsData;
+import com.ensense.insense.data.webservice.model.WSSuiteDetails;
+import com.ensense.insense.data.webservice.model.WebserviceSetupForm;
+import com.ensense.insense.data.webservice.model.WsDataset;
+import com.ensense.insense.services.webservice.WebserviceTestingService;
+import com.eviware.soapui.support.types.StringToStringMap;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 import java.util.Map;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.apache.log4j.Logger;
-import com.cts.mint.webservice.dao.WebserviceTestingDAO;
-import com.cts.mint.webservice.entity.WSBaseline;
-import com.cts.mint.webservice.entity.WSExecutionStatus;
-import com.cts.mint.webservice.entity.WSPingResults;
-import com.cts.mint.webservice.entity.WSPingSchedule;
-import com.cts.mint.webservice.entity.WSReports;
-import com.cts.mint.webservice.entity.WSResults;
-import com.cts.mint.webservice.entity.WSSchedule;
-import com.cts.mint.webservice.entity.WebserviceOperations;
-import com.cts.mint.webservice.entity.WebserviceSuite;
-import com.cts.mint.webservice.entity.WebserviceSuiteService;
-import com.cts.mint.webservice.entity.Webservices;
-import com.cts.mint.webservice.entity.WebservicesPingTest;
-import com.cts.mint.webservice.entity.WsEndpointDetails;
-import com.cts.mint.webservice.entity.WsOperationHeaderParameters;
-import com.cts.mint.webservice.entity.WsOperationParameter;
-import com.cts.mint.webservice.entity.WsOperationParameterValue;
-import com.cts.mint.webservice.entity.WsOperationXmlParameter;
-import com.cts.mint.webservice.entity.WsParameterAndSetId;
-import com.cts.mint.webservice.model.WSReportsData;
-import com.cts.mint.webservice.model.WSSuiteDetails;
-import com.cts.mint.webservice.model.WebserviceSetupForm;
-import com.cts.mint.webservice.model.WsDataset;
-import com.cts.mint.webservice.service.WebserviceTestingService;
-import com.eviware.soapui.support.types.StringToStringMap;
-
 @Service
-public class WebserviceTestingServiceImpl implements WebserviceTestingService{
+public class WebserviceTestingServiceImpl implements WebserviceTestingService {
 
 	private static Logger logger = Logger.getLogger(WebserviceTestingServiceImpl.class);
 	
@@ -205,9 +188,9 @@ public class WebserviceTestingServiceImpl implements WebserviceTestingService{
 	@Override
 	@Transactional
 	public boolean addTestOperationData(WsOperationParameter wsOperationParameter,
-			Map<String, String> requestValuesMap,
-			WsParameterAndSetId wsParameterAndSetId, Integer environmentId,
-			Integer operationId, String datasetName) {
+										Map<String, String> requestValuesMap,
+										WsParameterAndSetId wsParameterAndSetId, Integer environmentId,
+										Integer operationId, String datasetName) {
 		logger.debug("Entry And Exit : getRequestParamNames");
 		return webserviceTestingDAO.addTestOperationData(wsOperationParameter, requestValuesMap, wsParameterAndSetId,
 				environmentId,operationId, datasetName );
@@ -504,7 +487,7 @@ public class WebserviceTestingServiceImpl implements WebserviceTestingService{
 	@Override
 	@Transactional
 	public List<WSReportsData> getWSReports(int webserviceSuiteId,
-			int wsScheduleId) {
+											int wsScheduleId) {
 		logger.debug("Entry And Exit : getWSReportDatesFromSuiteId");
 		return webserviceTestingDAO.getWSReports(webserviceSuiteId, wsScheduleId);
 	}

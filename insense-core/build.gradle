@@ -3,6 +3,139 @@ version '0.1.0.BUILD-SNAPSHOT'
 
 apply plugin: 'java'
 
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',
+                'Implementation-Version': version
 
-dependencies {
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }
+
+//Get dependencies from Maven central repository
+repositories {
+    mavenCentral()
+
+}
+
+//Project dependencies
+dependencies {
+
+    compile "net.sf.uadetector:uadetector-core:0.9.10"
+    compile "net.sf.uadetector:uadetector-resources:2013.10"
+    compile "net.sf.qualitycheck:quality-check:1.3"
+    compile "org.eclipse.jetty:jetty-continuation:7.2.1.v20110203"
+    compile "org.eclipse.jetty:jetty-http:7.3.0.v20110203"
+    compile "org.eclipse.jetty:jetty-io:7.3.0.v20110203"
+    compile "org.eclipse.jetty:jetty-security:7.3.0.v20110203"
+    compile "org.eclipse.jetty:jetty-server:7.3.0.v20110203"
+    compile "org.eclipse.jetty:jetty-server:7.3.0.v20110203"
+    compile "org.eclipse.jetty:jetty-util:7.3.0.v20110203"
+    compile "org.codehaus.jackson:jackson-core-asl:1.9.2"
+    compile "org.codehaus.jackson:jackson-mapper-asl:1.9.2"
+    compile "log4j:log4j:1.2.16"
+    compile "org.slf4j:slf4j-api:1.6.4"
+    compile "org.slf4j:slf4j-jdk14:1.6.4"
+    compile "javax.servlet:javax.servlet-api:3.0.1"
+    compile "org.apache.commons:commons-lang3:3.4"
+    compile "ant-contrib:ant-contrib:1.0b3"
+    compile "antlr:antlr:2.7.7"
+    compile "aopalliance:aopalliance:1.0"
+    compile "commons-beanutils:commons-beanutils:1.8.3"
+    compile "commons-codec:commons-codec:1.4"
+    compile "commons-collections:commons-collections:3.2.1"
+    compile "commons-dbcp:commons-dbcp:1.4"
+    compile "commons-digester:commons-digester:1.8.1"
+    compile "org.ow2.asm:asm-all:5.0.3"
+    compile "org.bouncycastle:bcprov-jdk16:1.45"
+    compile "net.lightbody.bmp:browsermob-proxy:2.1.0-beta-2"
+    compile "cglib:cglib:3.1"
+    compile "commons-cli:commons-cli:1.3.1"
+    compile "org.apache.commons:commons-exec:1.2"
+    compile "commons-httpclient:commons-httpclient:3.1"
+    compile "commons-io:commons-io:2.4"
+    compile "org.apache.commons:commons-lang3:3.1"
+    compile "commons-logging:commons-logging:1.1.1"
+    compile "commons-pool:commons-pool:1.6"
+    compile "com.sun.mail:dsn:1.5.2"
+    compile "org.eclipse.core:runtime:3.3.100-v20070530"
+    compile "org.freemarker:freemarker:2.3.19"
+    compile "org.apache.geronimo.specs:geronimo-validation_1.0_spec:1.0-CR5"
+    compile "com.sun.mail:gimap:1.5.2"
+    compile "org.codehaus.groovy:groovy-all:2.0.0"
+    compile "com.google.code.gson:gson:2.3"
+    compile "org.hibernate.common:hibernate-commons-annotations:4.0.5.Final"
+    compile "org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.0.Final"
+    compile "org.hibernate:hibernate-core:4.2.7.Final"
+    compile "org.hibernate:hibernate-core:5.0.0.CR1"
+    compile "net.sourceforge.htmlcleaner:htmlcleaner:2.13"
+    compile "com.sun.mail:imap:1.5.2"
+    compile "org.codehaus.jackson:jackson-core-asl:1.9.2"
+    compile "org.codehaus.jackson:jackson-mapper-asl:1.9.2"
+    compile "org.javassist:javassist:3.18.1-GA"
+    //compile "javax.jms:jms:1.1"
+    compile "javax.mail:javax.mail-api:1.5.2"
+    compile "javax.xml.bind:jaxb-api:2.2.6"
+    compile "com.sun.xml.bind:jaxb-impl:2.2.6"
+    compile "javax.xml:jaxb-xjc:2.0EA3"
+    compile "org.jboss.logging:jboss-logging:3.3.0.Final"
+    compile "org.jboss.spec.javax.transaction:jboss-transaction-api_1.1_spec:1.0.1.Final"
+    compile "com.sun.jersey:jersey-bundle:1.18.1"
+
+    compile "javax.faces:jsf-api:1.2"
+    compile "javax.faces:jsf-impl:1.2"
+    compile "com.googlecode.json-simple:json-simple:1.1"
+    compile "org.jsoup:jsoup:1.8.3"
+    compile "org.apache.geronimo.specs:geronimo-jta_1.1_spec:1.1"
+    compile "junit:junit:4.8.2"
+    compile "log4j:log4j:1.2.16"
+    compile "mysql:mysql-connector-java:5.1.1"
+    //compile "ojdbc:ojdbc:14"
+    compile "org.apache.httpcomponents:httpclient:4.5"
+    compile "com.sun.mail:pop3:1.5.2"
+    compile "net.sf.qualitycheck:quality-check:1.3"
+    compile "com.fifesoft:rsyntaxtextarea:2.0.2"
+    compile "net.sourceforge.saxon:saxon:9.1.0.8"
+    compile "org.opengis.cite.saxon:saxon9:9.0.0.8"
+    compile "org.seleniumhq.selenium:selenium-server:2.51.0"
+    compile "org.slf4j:slf4j-api:1.6.4"
+    compile "org.slf4j:slf4j-jdk14:1.6.4"
+    compile "com.sun.mail:smtp:1.5.2"
+    compile "org.springframework:spring-aop:4.1.6.RELEASE"
+    compile "org.springframework:spring-aspects:4.1.6.RELEASE"
+    compile "org.springframework:spring-beans:4.1.6.RELEASE"
+    compile "org.springframework:spring-context:4.1.6.RELEASE"
+    compile "org.springframework:spring-context-support:4.1.6.RELEASE"
+    compile "org.springframework:spring-core:4.1.6.RELEASE"
+    compile "org.springframework:spring-expression:4.1.6.RELEASE"
+    compile "org.springframework:spring-instrument:4.1.6.RELEASE"
+    compile "org.springframework:spring-jdbc:4.1.6.RELEASE"
+    compile "org.springframework:spring-jms:4.1.6.RELEASE"
+    compile "org.springframework:spring-messaging:4.1.6.RELEASE"
+    compile "org.springframework:spring-orm:4.1.6.RELEASE"
+    compile "org.springframework:spring-oxm:4.1.6.RELEASE"
+    compile "org.springframework:spring-test:4.1.6.RELEASE"
+    compile "org.springframework:spring-tx:4.1.6.RELEASE"
+    compile "org.springframework:spring-web:4.1.6.RELEASE"
+    compile "org.springframework:spring-webmvc:4.1.6.RELEASE"
+    compile "org.springframework:spring-webmvc-portlet:4.1.6.RELEASE"
+    compile "org.springframework:spring-websocket:4.1.6.RELEASE"
+    compile "org.apache.tomcat:tomcat-dbcp:7.0.42"
+    compile "wsdl4j:wsdl4j:1.6.2"
+    compile "org.apache.ws.security:wss4j:1.6.1"
+    compile "xerces:xercesImpl:2.9.1"
+    compile "xml-security:xmlsec:1.3.0"
+    compile "xmlunit:xmlunit:1.2"
+    compile "org.apache.poi:poi:3.13"
+    compile "com.soulwarelabs.jcommons:jcommons-api:1.0.0"
+    compile "edu.umass.cs.benchlab:harlib:1.1.2"
+    compile "com.predic8:soa-model-core:1.5.4"
+    compile "com.github.redfish4ktc.soapui:soapui:4.0.1.0"
+    compile "org.apache.poi:poi:3.14-beta1"
+    compile "org.apache.poi:poi-ooxml:3.14-beta1"
+    compile "net.lightbody.bmp:browsermob-proxy:2.1.0-beta-4"
+    compile "com.fasterxml.jackson.core:jackson-databind:2.7.1-1"
+}
+task getHomeDir << { println gradle.gradleHomeDir }

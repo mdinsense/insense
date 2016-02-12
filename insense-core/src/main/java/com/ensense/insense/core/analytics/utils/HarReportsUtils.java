@@ -1,27 +1,19 @@
 package com.ensense.insense.core.analytics.utils;
 
+import com.ensense.insense.services.common.utils.HtmlParserUtil;
+import com.ensense.insense.services.common.utils.MintFileUtils;
+import edu.umass.cs.benchlab.har.*;
+import edu.umass.cs.benchlab.har.tools.HarFileReader;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.apache.log4j.Logger;
+
 import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.ZipFile;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.apache.log4j.Logger;
-
-import com.cts.mint.common.MintFileUtils;
-import com.cts.mint.common.ZipFileUtils;
-import com.cts.mint.htmlParser.HtmlParserUtil;
-
-import edu.umass.cs.benchlab.har.HarEntries;
-import edu.umass.cs.benchlab.har.HarEntry;
-import edu.umass.cs.benchlab.har.HarLog;
-import edu.umass.cs.benchlab.har.HarPage;
-import edu.umass.cs.benchlab.har.HarWarning;
-import edu.umass.cs.benchlab.har.tools.HarFileReader;
 
 public class HarReportsUtils {
 	private static final Logger logger = Logger
