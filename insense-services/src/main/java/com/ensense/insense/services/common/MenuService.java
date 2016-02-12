@@ -1,8 +1,11 @@
 package com.ensense.insense.services.common;
 
 
-import com.ensense.insense.core.usermanagement.FunctionalityForGroup;
-import uiadmin.form.UserManagementForm;
+import com.ensense.insense.data.common.entity.FunctionalityPermission;
+import com.ensense.insense.data.common.entity.Menu;
+import com.ensense.insense.data.common.model.FunctionalityForGroup;
+import com.ensense.insense.data.common.model.uiadmin.form.UserManagementForm;
+import com.ensense.insense.data.miscellaneous.entity.MiscellaneousTool;
 
 import java.util.List;
 

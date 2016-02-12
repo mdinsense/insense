@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import uiadmin.form.schedule.TestingForm;
+import com.ensense.insense.core.uiadmin.form.schedule.TestingForm;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;

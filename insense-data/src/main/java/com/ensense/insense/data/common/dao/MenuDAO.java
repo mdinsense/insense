@@ -1,13 +1,13 @@
 package com.ensense.insense.data.common.dao;
 
-import java.util.List;
+import com.ensense.insense.data.common.entity.FunctionalityPermission;
+import com.ensense.insense.data.common.entity.Menu;
+import com.ensense.insense.data.common.model.FunctionalityForGroup;
+import com.ensense.insense.data.common.model.MenuAccess;
+import com.ensense.insense.data.common.model.uiadmin.form.UserManagementForm;
+import com.ensense.insense.data.miscellaneous.entity.MiscellaneousTool;
 
-import com.cts.mint.common.entity.FunctionalityPermission;
-import com.cts.mint.common.entity.Menu;
-import com.cts.mint.common.model.MenuAccess;
-import com.cts.mint.miscellaneous.entity.MiscellaneousTool;
-import com.cts.mint.usermanagement.form.UserManagementForm;
-import com.cts.mint.usermanagement.model.FunctionalityForGroup;
+import java.util.List;
 
 public interface MenuDAO {
 	public int getMenuIdForAction(String menuAction);

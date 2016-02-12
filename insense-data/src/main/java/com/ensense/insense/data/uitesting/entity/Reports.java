@@ -1,21 +1,13 @@
 package com.ensense.insense.data.uitesting.entity;
 
+import com.ensense.insense.data.analytics.model.SummaryReport;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Clob;
 import java.util.Date;
 import java.util.HashMap;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.Table;
-import javax.persistence.Transient;
-
-import org.hibernate.annotations.GenericGenerator;
-
-import com.cts.mint.analytics.model.SummaryReport;
 
 /**
  * The persistent class for the applications_table database table.

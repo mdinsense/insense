@@ -1,10 +1,12 @@
 package com.ensense.insense.core.crawler.model;
 
+import com.ensense.insense.core.model.uiadmin.form.schedule.CompareLink;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.cts.mint.uitesting.model.CompareLink;
+
 
 public class CompareConfig implements Serializable{
 

@@ -1,22 +1,12 @@
 package com.ensense.insense.core.proxy;
 
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URL;
-import java.security.Security;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
 import net.lightbody.bmp.core.har.Har;
+import net.lightbody.bmp.proxy.LegacyProxyServer;
 import net.lightbody.bmp.proxy.ProxyServer;
 import net.lightbody.bmp.proxy.http.BrowserMobHttpRequest;
 import net.lightbody.bmp.proxy.http.BrowserMobHttpResponse;
 import net.lightbody.bmp.proxy.http.RequestInterceptor;
 import net.lightbody.bmp.proxy.http.ResponseInterceptor;
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
@@ -24,6 +14,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
+import java.security.Security;
+import java.util.*;
 
 public class BMPServer {
 
@@ -122,7 +118,7 @@ public class BMPServer {
 		return mobProxyServer;
 	}
 
-	public ProxyServer addRequestIntercentor(ProxyServer mobProxyServer,
+	public LegacyProxyServer addRequestIntercentor(LegacyProxyServer mobProxyServer,
 			final Map<String, String> hostHeaderSpoofMap) {
 		mobProxyServer.addResponseInterceptor(new ResponseInterceptor() {
 
@@ -210,7 +206,7 @@ public class BMPServer {
 		return driver;
 	}
 
-	public void stopProxyServer(ProxyServer mobProxyServer) {
+	public void stopProxyServer(LegacyProxyServer mobProxyServer) {
 		try {
 			// stop if already running
 			mobProxyServer.waitForNetworkTrafficToStop(40000, 20000);

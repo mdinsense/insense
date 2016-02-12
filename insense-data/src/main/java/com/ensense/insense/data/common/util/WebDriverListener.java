@@ -1,7 +1,7 @@
 package com.ensense.insense.data.common.util;
 
 
-import com.ensense.insense.core.utils.MintConstants;
+import com.ensense.insense.data.utils.MintConstants;
 import com.ensense.insense.data.common.model.*;
 import com.ensense.insense.data.uitesting.model.ErrorType;
 import com.ensense.insense.data.uitesting.model.TextImageReportData;

@@ -8,8 +8,9 @@
 
 package com.ensense.insense.core.generated.jaxb.analytics.summarydashboard;
 
-import com.ensense.insense.core.generated.jaxb.analytics.summarydashboard.SummaryDashBoardData.SummaryDashBoardEntries;
-import com.ensense.insense.core.generated.jaxb.analytics.summarydashboard.SummaryDashBoardData.SummaryDashBoardEntries.TagVarNameValue;
+import com.ensense.insense.data.generated.jaxb.analytics.summarydashboard.SummaryDashBoardData;
+import com.ensense.insense.data.generated.jaxb.analytics.summarydashboard.SummaryDashBoardData.SummaryDashBoardEntries;
+import com.ensense.insense.data.generated.jaxb.analytics.summarydashboard.SummaryDashBoardData.SummaryDashBoardEntries.TagVarNameValue;
 
 import javax.xml.bind.annotation.XmlRegistry;
 

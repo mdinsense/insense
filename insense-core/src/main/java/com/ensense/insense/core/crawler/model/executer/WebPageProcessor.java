@@ -1,8 +1,8 @@
 package com.ensense.insense.core.crawler.model.executer;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.ensense.insense.data.common.model.*;
+import com.ensense.insense.data.utils.scheduler.SmartUserV2;
+import com.ensense.insense.services.common.utils.FileDirectoryUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -10,14 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.UnreachableBrowserException;
 
-import com.cts.mint.common.model.Link;
-import com.cts.mint.common.model.PartialText;
-import com.cts.mint.crawler.model.CrawlConfig;
-import com.cts.mint.crawler.model.CrawlStatus;
-import com.cts.mint.smartuser.SmartUserV2;
-import com.cts.mint.uitesting.entity.ApplicationConfig;
-import com.cts.mint.uitesting.model.ScheduleDetails;
-import com.cts.mint.util.FileDirectoryUtil;
+import java.util.ArrayList;
 
 
 public class WebPageProcessor {
@@ -134,7 +127,7 @@ public class WebPageProcessor {
 		String href = "";
 		String navigationPath = "";
 		String linkName = "";
-		CrawlStatus crawlStatus = crawlConfig.getCrawlStatus(); 
+		CrawlStatus crawlStatus = crawlConfig.getCrawlStatus();
 		Link currentLink = crawlStatus.getCurrentLink();
 		
 		for (WebElement a : crawlConfig.getDriver().findElements(By.tagName("a"))) {
@@ -170,7 +163,7 @@ public class WebPageProcessor {
 					navigationPath = currentLink.getNavigationPath() + "->" + "Unknown";
 				}
 				//queue.add(new Link(removeSpecialChars(imageName), removePound(imageDirectory), a.getAttribute("href"), false));
-				Link newLink = new Link(removeSpecialChars(imageName, true), FileDirectoryUtil.removePound(removeSpecialChars(imageDirectory, false)), 
+				Link newLink = new Link(removeSpecialChars(imageName, true), FileDirectoryUtil.removePound(removeSpecialChars(imageDirectory, false)),
 						a.getAttribute("href"), navigationPath, "", true, 
 						crawlConfig.getDriver().getTitle(), currentLink.getUrl(), false, new ArrayList<PartialText>(), currentLink.getUrlLevel() + 1);
 				//logger.info(appConfig.getTestScheduleId()+" :Link :"+currentLink);

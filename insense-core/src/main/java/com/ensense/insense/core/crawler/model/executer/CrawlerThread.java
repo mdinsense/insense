@@ -1,8 +1,8 @@
 package com.ensense.insense.core.crawler.model.executer;
 
 import com.ensense.insense.core.transaction.model.jaxb.LinkNavigation;
-import com.ensense.insense.core.utils.Constants;
-import com.ensense.insense.core.utils.scheduler.SmartUserV2;
+import com.ensense.insense.data.utils.Constants;
+import com.ensense.insense.data.utils.scheduler.SmartUserV2;
 import com.ensense.insense.data.common.model.*;
 import com.ensense.insense.data.uitesting.entity.ExcludeUrl;
 import com.ensense.insense.data.uitesting.entity.IncludeUrl;

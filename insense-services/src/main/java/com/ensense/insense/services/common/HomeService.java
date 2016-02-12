@@ -1,7 +1,7 @@
 package com.ensense.insense.services.common;
 
-import com.ensense.insense.core.analytics.model.AnalyticsDetails;
-import com.ensense.insense.core.analytics.model.AnalyticsSummaryReportUi;
+import com.ensense.insense.data.analytics.model.AnalyticsDetails;
+import com.ensense.insense.data.analytics.model.AnalyticsSummaryReportUi;
 import com.ensense.insense.data.common.entity.*;
 import com.ensense.insense.data.common.model.*;
 import com.ensense.insense.data.uitesting.entity.*;

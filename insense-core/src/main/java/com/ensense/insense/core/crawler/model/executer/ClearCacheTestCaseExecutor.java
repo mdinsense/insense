@@ -1,6 +1,7 @@
 package com.ensense.insense.core.crawler.model.executer;
 
-import com.ensense.insense.core.utils.BrowserDriverLoaderUtil;
+import com.ensense.insense.data.miscellaneous.entity.ClearCache;
+import com.ensense.insense.data.utils.BrowserDriverLoaderUtil;
 import com.ensense.insense.services.common.utils.CommonUtils;
 import com.ensense.insense.services.common.utils.FileDirectoryUtil;
 import org.apache.commons.lang3.exception.ExceptionUtils;

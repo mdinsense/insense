@@ -1,24 +1,21 @@
 package com.ensense.insense.core.crawler.model.executer;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Properties;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-
-import net.lightbody.bmp.proxy.ProxyServer;
-
+import com.ensense.insense.core.proxy.BMPServer;
+import com.ensense.insense.core.transaction.model.jaxb.LinkNavigation;
+import com.ensense.insense.data.common.model.CrawlConfig;
+import com.ensense.insense.data.common.model.Link;
+import com.ensense.insense.data.common.model.PartialText;
+import com.ensense.insense.data.common.model.ScheduleDetails;
+import com.ensense.insense.data.common.util.WebDriverListener;
+import com.ensense.insense.data.uitesting.entity.ApplicationConfig;
+import com.ensense.insense.data.uitesting.entity.ExcludeUrl;
+import com.ensense.insense.data.uitesting.entity.IncludeUrl;
+import com.ensense.insense.data.utils.BrowserDriverLoaderUtil;
+import com.ensense.insense.data.utils.RemoteWebDriverConfiguration;
+import com.ensense.insense.services.common.utils.CommonUtils;
+import com.ensense.insense.services.common.utils.FileDirectoryUtil;
+import net.lightbody.bmp.BrowserMobProxyServer;
+import net.lightbody.bmp.proxy.LegacyProxyServer;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.UnsupportedCommandException;
@@ -27,21 +24,18 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.springframework.context.MessageSource;
 
-import com.cts.mint.common.model.Link;
-import com.cts.mint.common.model.PartialText;
-import com.cts.mint.common.utils.CommonUtils;
-import com.cts.mint.crawler.model.CrawlConfig;
-import com.cts.mint.crawler.model.HtmlFileDetails;
-import com.cts.mint.proxy.BMPServer;
-import com.cts.mint.transaction.model.jaxb.LinkNavigation;
-import com.cts.mint.transaction.model.jaxb.LinkNavigation.NavigationDetails;
-import com.cts.mint.uitesting.entity.ApplicationConfig;
-import com.cts.mint.uitesting.entity.ExcludeUrl;
-import com.cts.mint.uitesting.entity.IncludeUrl;
-import com.cts.mint.uitesting.model.ScheduleDetails;
-import com.cts.mint.util.BrowserDriverLoaderUtil;
-import com.cts.mint.util.FileDirectoryUtil;
-import com.cts.mint.util.RemoteWebDriverConfiguration;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.*;
+import java.util.Map.Entry;
+
+
 
 public class Crawler {
 	
@@ -103,7 +97,8 @@ public class Crawler {
 				+ appConfig.getApplicationName() + " Login ID:"
 				+ appConfig.getLoginId());
 		BMPServer bmpServer = new BMPServer();
-		ProxyServer mobProxyServer = null;
+		//ProxyServer mobProxyServer = null;
+		LegacyProxyServer mobProxyServer = new BrowserMobProxyServer();
 
 		boolean enableAkamaiTesting = false;
 		Proxy proxyClient = null;
@@ -249,7 +244,7 @@ public class Crawler {
 		return errorPageIdentifiers;
 	}
 
-	protected void startBMPProxyServer(BMPServer bmpServer, ProxyServer mobProxyServer, Properties akamaiMapping, Properties proxyAthentication) {
+	protected void startBMPProxyServer(BMPServer bmpServer, LegacyProxyServer mobProxyServer, Properties akamaiMapping, Properties proxyAthentication) {
 		logger.info("Entry :startBMPProxyServer");
 
 		try {
@@ -399,10 +394,10 @@ public class Crawler {
 		List<Link> navigationlistDetails = crawlConfig.getCrawlStatus().getNavigationList();
 		String tempXmlFile="";
 		String xmlFileContents = null;
-		List<NavigationDetails> navigationResults = new ArrayList<NavigationDetails>();
+		List<LinkNavigation.NavigationDetails> navigationResults = new ArrayList<LinkNavigation.NavigationDetails>();
 		
 		for(Link link : navigationlistDetails){
-			NavigationDetails navigationDetails =new NavigationDetails();
+			LinkNavigation.NavigationDetails navigationDetails =new LinkNavigation.NavigationDetails();
 			navigationDetails.setLinkTitle(link.getImageName());
 			navigationDetails.setHref(link.getUrl());
 			navigationDetails.setPageTitle(link.getPageTile());
@@ -754,7 +749,7 @@ public class Crawler {
 			e.printStackTrace();
 		}
 	}
-	public String getResultsAsXMLString(List<NavigationDetails> navigationlistDetails, String xmlFileName) throws Exception{
+	public String getResultsAsXMLString(List<LinkNavigation.NavigationDetails> navigationlistDetails, String xmlFileName) throws Exception{
 		logger.info("Entry: getResultsAsXMLString, navigationlistDetails ->"+navigationlistDetails);
 		FileOutputStream fos = null;
 		ByteArrayOutputStream baos = null;

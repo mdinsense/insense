@@ -1,9 +1,9 @@
 package com.ensense.insense.data.analytics.dao;
 
 
-import java.util.List;
+import com.ensense.insense.data.analytics.entity.DetailedView;
 
-import com.cts.mint.analytics.entity.DetailedView;
+import java.util.List;
 
 
 public interface DetailViewTableDAO {

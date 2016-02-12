@@ -1,8 +1,15 @@
 package com.ensense.insense.data.analytics.dao.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.ensense.insense.data.analytics.common.DataSource;
+import com.ensense.insense.data.analytics.dao.AnalyticsDashboardDAO;
+import com.ensense.insense.data.analytics.entity.AnalyticsAuditSummary;
+import com.ensense.insense.data.analytics.entity.DashboardsHomeDetails;
+import com.ensense.insense.data.analytics.entity.DetailedView;
+import com.ensense.insense.data.common.model.AnalyticsAuditSummaryReportDates;
+import com.ensense.insense.data.transaction.entity.TestCaseFileUpload;
+import com.ensense.insense.data.uitesting.entity.LoginUserDetails;
+import com.ensense.insense.data.uitesting.entity.Reports;
+import com.ensense.insense.data.uitesting.entity.Results;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -10,16 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import com.cts.mint.analytics.common.DataSource;
-import com.cts.mint.analytics.dao.AnalyticsDashboardDAO;
-import com.cts.mint.analytics.entity.AnalyticsAuditSummary;
-import com.cts.mint.analytics.entity.DashboardsHomeDetails;
-import com.cts.mint.analytics.entity.DetailedView;
-import com.cts.mint.analytics.model.AnalyticsAuditSummaryReportDates;
-import com.cts.mint.uitesting.entity.LoginUserDetails;
-import com.cts.mint.uitesting.entity.Reports;
-import com.cts.mint.uitesting.entity.Results;
-import com.cts.mint.uitesting.transaction.entity.TestCaseFileUpload;
+import java.util.ArrayList;
+import java.util.List;
+
 
 
 @Service
@@ -170,7 +170,7 @@ public class AnalyticsDashboardDAOImpl implements AnalyticsDashboardDAO {
 	 */
 	@Override
 	public List<DetailedView> getDetailedViewDataFromDB(String pageURLdefault,
-			LoginUserDetails loginUser, Reports forGeneratedDate) {
+														LoginUserDetails loginUser, Reports forGeneratedDate) {
 
 		logger.info("Entry getDetailedViewDataFromDB in DAO");
 		Query query = null;
