@@ -1,6 +1,6 @@
 package com.ensense.insense.data.analytics.common;
 
-import com.ensense.insense.data.generated.jaxb.analytics.summarydashboard.SummaryDashBoardData;
+import com.ensense.insense.core.analytics.summarydashboard.SummaryDashBoardData;
 import org.apache.log4j.Logger;
 
 import java.lang.reflect.Field;

@@ -5,7 +5,7 @@ import com.ensense.insense.data.common.UserService;
 import com.ensense.insense.data.common.model.UsageReportForm;
 import com.ensense.insense.data.common.utils.Constants;
 import com.ensense.insense.data.common.utils.FileDirectoryUtil;
-import com.ensense.insense.data.utils.UIFunctionalityType;
+import com.ensense.insense.core.analytics.utils.UIFunctionalityType;
 import com.ensense.insense.services.reports.ScheduledService;
 import com.ensense.insense.services.uiadmin.EnvironmentService;
 import org.apache.commons.lang3.exception.ExceptionUtils;

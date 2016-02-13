@@ -5,7 +5,7 @@ import com.ensense.insense.data.common.model.Link;
 import com.ensense.insense.data.common.utils.DateTimeUtil;
 import com.ensense.insense.data.common.utils.JsonReaderWriter;
 import com.ensense.insense.data.common.utils.UiTestingConstants;
-import com.ensense.insense.data.generated.jaxb.analytics.detailedview.DetailedViewWebAnalyticsTagData;
+import com.ensense.insense.core.analytics.detailedview.DetailedViewWebAnalyticsTagData;
 
 import java.util.*;
 

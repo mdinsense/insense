@@ -1,7 +1,7 @@
 package com.ensense.insense.core.webservice.util;
 
 import com.ensense.insense.core.webservice.model.PingTestStatus;
-import com.ensense.insense.data.utils.BrowserDriverLoaderUtil;
+import com.ensense.insense.core.analytics.utils.BrowserDriverLoaderUtil;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

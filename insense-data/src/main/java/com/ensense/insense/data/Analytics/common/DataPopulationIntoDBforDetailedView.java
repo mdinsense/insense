@@ -1,7 +1,7 @@
 package com.ensense.insense.data.analytics.common;
 
 import com.ensense.insense.data.analytics.entity.DetailedView;
-import com.ensense.insense.data.generated.jaxb.analytics.detailedview.DetailedViewWebAnalyticsTagData;
+import com.ensense.insense.core.analytics.detailedview.DetailedViewWebAnalyticsTagData;
 import com.ensense.insense.data.utils.PropertyReader;
 import com.ensense.insense.data.analytics.model.WebAnalyticsTagData;
 import org.apache.log4j.Logger;

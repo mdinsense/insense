@@ -10,7 +10,7 @@ import com.ensense.insense.data.common.entity.Users;
 import com.ensense.insense.data.common.utils.FileDirectoryUtil;
 import com.ensense.insense.data.uitesting.entity.Environment;
 import com.ensense.insense.data.common.utils.Constants;
-import com.ensense.insense.data.utils.UserServiceUtils;
+import com.ensense.insense.core.analytics.utils.UserServiceUtils;
 import com.ensense.insense.data.webservice.entity.*;
 import com.ensense.insense.data.webservice.model.*;
 import com.ensense.insense.services.common.HomeService;

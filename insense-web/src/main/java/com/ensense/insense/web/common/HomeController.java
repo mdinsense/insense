@@ -1,6 +1,8 @@
 package com.ensense.insense.web.common;
 
 
+import com.ensense.insense.core.analytics.utils.*;
+import com.ensense.insense.core.analytics.utils.JsonReaderWriter;
 import com.ensense.insense.data.common.utils.*;
 import com.ensense.insense.data.crawler.model.CompareConfig;
 import com.ensense.insense.core.webservice.model.WSSuiteParams;
@@ -11,7 +13,6 @@ import com.ensense.insense.data.common.model.*;
 import com.ensense.insense.data.uitesting.entity.*;
 import com.ensense.insense.data.utils.*;
 import com.ensense.insense.data.utils.DateTimeUtil;
-import com.ensense.insense.data.utils.JsonReaderWriter;
 import com.ensense.insense.data.webservice.entity.*;
 import com.ensense.insense.data.webservice.model.WSReportsData;
 import com.ensense.insense.data.webservice.model.WebserviceSetupForm;
@@ -67,7 +68,7 @@ public class HomeController {
 	
 	@Autowired
 	private ServletContext servletContext;
-	
+
 	@Autowired
 	private HttpServletRequest httpRequest;
 	
@@ -82,7 +83,7 @@ public class HomeController {
 	
 	@Autowired
 	HomeService homeService;
-	
+
 	@Autowired
 	ScheduledService scheduledService;
 	
@@ -1903,9 +1904,9 @@ public class HomeController {
 				if ( null != scheduleExecution.getCrawlStatusDirectory() ){
 
 					ScheduleExecution baselineScheduleExcecution = scheduledService.getScheduleExecution(scheduleExecution.getBaselineScheduleExecutionId());
-					
+
 					logger.info("baselineScheduleExcecution :"+baselineScheduleExcecution);
-					
+
 					uiReportsSummary = scheduledService.getUiReportSummary(scheduleExecution, baselineScheduleExcecution);
 					
 					/*if ( scheduleExecution.getBaselineScheduleExecutionId() < 1 ){
@@ -1917,7 +1918,7 @@ public class HomeController {
 							uiReportsSummary.setCurrentRunTotalUrls(crawlConfig.getCrawlStatus().getNavigationList().size());
 						}
 					}*/
-					
+
 				}
 			}
 			logger.info("uiReportsSummary :"+uiReportsSummary);
@@ -2626,8 +2627,8 @@ public class HomeController {
 					if (regressionTestExecutionForm.getRecurrenceidweekly6() != null && regressionTestExecutionForm.getRecurrenceidweekly6().equals("on")) {
 						weekwise += "Saturday,";
 					}
+					weekwise += "Sunday,";
 					if (regressionTestExecutionForm.getRecurrenceidweekly7() != null && regressionTestExecutionForm.getRecurrenceidweekly7().equals("on")) {
-						weekwise += "Sunday,";
 					}
 					wsSchedule.setRecurrenceDateWise(null);
 					wsSchedule.setScheduledDay(weekwise.substring(0, weekwise.length()-1));
@@ -2919,10 +2920,10 @@ public class HomeController {
 	@RequestMapping(value = "/getSiteCatalystTagDataMapValues", method = RequestMethod.POST)
 	public @ResponseBody
 	List<Pair> getSiteCatalystTagDataMapValues(@RequestParam(value = "scheduleExecutionId") Integer scheduleExecutionId,
-			@RequestParam(value = "baseLinePageUrl") String baseLinePageUrl,
-			@RequestParam(value = "pageTitle") String pageTitle,
-			@RequestParam(value = "tagName") String tagName,
-			@RequestParam(value = "detailsOrError") String detailsOrError){
+											   @RequestParam(value = "baseLinePageUrl") String baseLinePageUrl,
+											   @RequestParam(value = "pageTitle") String pageTitle,
+											   @RequestParam(value = "tagName") String tagName,
+											   @RequestParam(value = "detailsOrError") String detailsOrError){
 		logger.debug("Entry: getSiteCatalystTagDataMapValues, scheduleExecutionId->"+scheduleExecutionId);
 
 		Map<String, String> baseLineTagVariableDataMap;

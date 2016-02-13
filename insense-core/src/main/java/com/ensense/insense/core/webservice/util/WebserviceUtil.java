@@ -6,7 +6,7 @@ import com.ensense.insense.core.webservice.model.ServiceUrl;
 import com.ensense.insense.data.common.utils.DateTimeUtil;
 import com.ensense.insense.data.common.utils.FileDirectoryUtil;
 import com.ensense.insense.data.common.utils.Constants;
-import com.ensense.insense.data.utils.EmailUtil;
+import com.ensense.insense.core.analytics.utils.EmailUtil;
 import com.ensense.insense.data.webservice.entity.WSPingResults;
 import com.ensense.insense.data.webservice.entity.WSPingSchedule;
 import com.ensense.insense.data.webservice.entity.Webservices;

@@ -4,7 +4,7 @@ import com.ensense.insense.data.common.model.CrawlConfig;
 import com.ensense.insense.data.common.model.ScheduleDetails;
 import com.ensense.insense.data.uitesting.entity.ScheduleScript;
 import com.ensense.insense.data.uitesting.entity.ScheduleScriptXref;
-import com.ensense.insense.data.utils.SerializeStatus;
+import com.ensense.insense.core.analytics.utils.SerializeStatus;
 import com.ensense.insense.services.reports.TestScheduleService;
 import org.apache.log4j.Logger;
 import org.springframework.context.MessageSource;

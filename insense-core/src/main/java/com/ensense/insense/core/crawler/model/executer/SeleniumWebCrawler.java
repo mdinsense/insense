@@ -1,7 +1,7 @@
 package com.ensense.insense.core.crawler.model.executer;
 
-import com.ensense.insense.data.utils.CRUDObjectsToFileUtil;
-import com.ensense.insense.data.utils.FireFoxUtils;
+import com.ensense.insense.core.analytics.utils.CRUDObjectsToFileUtil;
+import com.ensense.insense.core.analytics.utils.FireFoxUtils;
 import com.ensense.insense.data.utils.scheduler.SmartUserV2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
