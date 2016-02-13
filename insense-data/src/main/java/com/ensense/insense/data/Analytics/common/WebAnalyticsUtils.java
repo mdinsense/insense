@@ -5,13 +5,13 @@ import com.ensense.insense.data.analytics.entity.DetailedView;
 import com.ensense.insense.data.analytics.model.*;
 import com.ensense.insense.data.common.model.CrawlConfig;
 import com.ensense.insense.data.common.model.Link;
-import com.ensense.insense.data.common.util.DateTimeUtil;
-import com.ensense.insense.data.common.util.FileListing;
-import com.ensense.insense.data.common.util.JsonReaderWriter;
+import com.ensense.insense.data.common.utils.DateTimeUtil;
+import com.ensense.insense.data.common.utils.FileListing;
+import com.ensense.insense.data.common.utils.JsonReaderWriter;
 import com.ensense.insense.data.common.utils.UiTestingConstants;
 import com.ensense.insense.data.common.utils.ZipFileUtils;
 import com.ensense.insense.data.utils.FileUtils;
-import com.ensense.insense.services.analytics.model.WebAnalyticsTagData;
+import com.ensense.insense.data.analytics.model.WebAnalyticsTagData;
 import edu.umass.cs.benchlab.har.*;
 import edu.umass.cs.benchlab.har.tools.HarFileReader;
 import edu.umass.cs.benchlab.har.tools.HarFileWriter;
@@ -2998,7 +2998,7 @@ public class WebAnalyticsUtils {
 	/*******
 	 * For Status 200 value to be set added by 303780
 	 * 
-	 * @param model
+	 * @param
 	 * @return
 	 */
 

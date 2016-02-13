@@ -10,6 +10,7 @@ import com.eviware.soapui.support.types.StringToStringMap;
 import java.util.List;
 import java.util.Map;
 
+
 public interface WebserviceTestingService {
 
 	public List<Webservices> getAllWebservices();

@@ -1,20 +1,20 @@
 package com.ensense.insense.data.uitesting.dao.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.commons.lang.exception.ExceptionUtils;
+import com.ensense.insense.data.uitesting.dao.HtmlReportConfigDAO;
+import com.ensense.insense.data.uitesting.entity.HtmlReportsConfig;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cts.mint.uitesting.dao.HtmlReportConfigDAO;
-import com.cts.mint.uitesting.entity.HtmlReportsConfig;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Service
-public class HtmlReportConfigDAOImpl implements HtmlReportConfigDAO{
+public class HtmlReportConfigDAOImpl implements HtmlReportConfigDAO {
 	
 	private static Logger logger = Logger
 			.getLogger(HtmlReportConfigDAOImpl.class);

@@ -1,6 +1,6 @@
 package com.ensense.insense.core.crawler.model.executer;
 
-import com.ensense.insense.data.utils.Constants;
+import com.ensense.insense.data.common.utils.Constants;
 import com.ensense.insense.data.common.model.CrawlStatus;
 import com.ensense.insense.data.common.model.ExecutionStatus;
 import com.ensense.insense.data.common.model.Link;

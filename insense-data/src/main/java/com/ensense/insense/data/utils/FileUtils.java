@@ -1,6 +1,6 @@
 package com.ensense.insense.data.utils;
 
-import com.ensense.insense.data.common.util.FileListing;
+import com.ensense.insense.data.common.utils.FileListing;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FilenameUtils;
 

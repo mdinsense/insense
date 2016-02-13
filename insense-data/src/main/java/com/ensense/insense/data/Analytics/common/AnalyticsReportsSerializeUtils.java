@@ -4,10 +4,10 @@ import com.ensense.insense.data.analytics.model.AnalyticSummaryDetails;
 import com.ensense.insense.data.analytics.model.AnalyticsDetails;
 import com.ensense.insense.data.analytics.model.SamePagesDataStore;
 import com.ensense.insense.data.analytics.model.WebAnalyticsPageData;
-import com.ensense.insense.data.common.util.DateTimeUtil;
-import com.ensense.insense.data.common.util.JsonReaderWriter;
+import com.ensense.insense.data.common.utils.DateTimeUtil;
+import com.ensense.insense.data.common.utils.JsonReaderWriter;
 import com.ensense.insense.data.common.utils.UiTestingConstants;
-import com.ensense.insense.services.analytics.model.WebAnalyticsTagData;
+import com.ensense.insense.data.analytics.model.WebAnalyticsTagData;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 

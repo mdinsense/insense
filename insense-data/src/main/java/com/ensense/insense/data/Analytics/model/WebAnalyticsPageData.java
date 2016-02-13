@@ -1,7 +1,5 @@
 package com.ensense.insense.data.analytics.model;
 
-import com.ensense.insense.services.analytics.model.WebAnalyticsTagData;
-
 import java.util.Date;
 import java.util.Map;
 

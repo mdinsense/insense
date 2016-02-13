@@ -1,9 +1,9 @@
 package com.ensense.insense.data.uitesting.dao;
 
-import java.util.List;
+import com.ensense.insense.data.common.model.ScheduleExecutionDetail;
+import com.ensense.insense.data.uitesting.entity.SuitBrokenReportsXref;
 
-import com.cts.mint.uitesting.entity.SuitBrokenReportsXref;
-import com.cts.mint.uitesting.model.ScheduleExecutionDetail;
+import java.util.List;
 
 public interface ReportsGenerationDAO {
 

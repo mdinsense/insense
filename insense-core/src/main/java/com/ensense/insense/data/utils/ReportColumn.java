@@ -1,5 +1,6 @@
 package com.ensense.insense.data.utils;
 
+import com.ensense.insense.data.common.utils.Constants;
 import org.apache.poi.hssf.usermodel.HSSFFont;
 
 public class ReportColumn {

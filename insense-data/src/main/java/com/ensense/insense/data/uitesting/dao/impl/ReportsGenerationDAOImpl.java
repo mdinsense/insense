@@ -1,8 +1,12 @@
 package com.ensense.insense.data.uitesting.dao.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.ensense.insense.data.common.model.ExecutionStatus;
+import com.ensense.insense.data.common.model.ScheduleExecutionDetail;
+import com.ensense.insense.data.uitesting.dao.ReportsGenerationDAO;
+import com.ensense.insense.data.uitesting.entity.AppEnvEnvironmentCategoryXref;
+import com.ensense.insense.data.uitesting.entity.Schedule;
+import com.ensense.insense.data.uitesting.entity.ScheduleExecution;
+import com.ensense.insense.data.uitesting.entity.SuitBrokenReportsXref;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
@@ -10,13 +14,9 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cts.mint.common.utils.ExecutionStatus;
-import com.cts.mint.uitesting.dao.ReportsGenerationDAO;
-import com.cts.mint.uitesting.entity.AppEnvEnvironmentCategoryXref;
-import com.cts.mint.uitesting.entity.Schedule;
-import com.cts.mint.uitesting.entity.ScheduleExecution;
-import com.cts.mint.uitesting.entity.SuitBrokenReportsXref;
-import com.cts.mint.uitesting.model.ScheduleExecutionDetail;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Service
 public class ReportsGenerationDAOImpl implements ReportsGenerationDAO {

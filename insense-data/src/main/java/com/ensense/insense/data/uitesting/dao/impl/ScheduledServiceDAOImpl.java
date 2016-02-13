@@ -1,14 +1,19 @@
 package com.ensense.insense.data.uitesting.dao.impl;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
+import com.ensense.insense.data.common.model.ExecutionStatus;
+import com.ensense.insense.data.common.model.ScheduleExecutionDetail;
+import com.ensense.insense.data.common.model.UsageReportConstants;
+import com.ensense.insense.data.common.model.UsageReportForm;
+import com.ensense.insense.data.common.utils.Constants;
+import com.ensense.insense.data.common.utils.DateTimeUtil;
+import com.ensense.insense.data.uitesting.dao.ScheduledServiceDAO;
+import com.ensense.insense.data.uitesting.entity.AppEnvEnvironmentCategoryXref;
+import com.ensense.insense.data.uitesting.entity.Schedule;
+import com.ensense.insense.data.uitesting.entity.ScheduleExecution;
+import com.ensense.insense.data.uitesting.entity.SuitTextImageXref;
+import com.ensense.insense.data.utils.MintConstants;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
@@ -18,19 +23,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.cts.mint.common.model.UsageReportForm;
-import com.cts.mint.common.utils.Constants.SolutionType;
-import com.cts.mint.common.utils.ExecutionStatus;
-import com.cts.mint.common.utils.Constants.UsageReportConstants;
-import com.cts.mint.uitesting.dao.ScheduledServiceDAO;
-import com.cts.mint.uitesting.entity.AppEnvEnvironmentCategoryXref;
-import com.cts.mint.uitesting.entity.Schedule;
-import com.cts.mint.uitesting.entity.ScheduleExecution;
-import com.cts.mint.uitesting.entity.ScheduleScriptXref;
-import com.cts.mint.uitesting.entity.SuitTextImageXref;
-import com.cts.mint.uitesting.model.ScheduleExecutionDetail;
-import com.cts.mint.util.DateTimeUtil;
-import com.cts.mint.util.MintConstants;
+import java.util.*;
+
 
 @Service
 public class ScheduledServiceDAOImpl implements ScheduledServiceDAO {
@@ -883,7 +877,7 @@ public class ScheduledServiceDAOImpl implements ScheduledServiceDAO {
 
 		if (usageReport.getSolutionType() != null
 				&& usageReport.getSolutionType().length > 0
-				&& Integer.parseInt(usageReport.getSolutionType()[0]) == SolutionType.UI_TESTING
+				&& Integer.parseInt(usageReport.getSolutionType()[0]) == Constants.SolutionType.UI_TESTING
 				.getSolutionTypeId()) {
 
 			if (usageReport.getEnvironmentCategoryId() != null

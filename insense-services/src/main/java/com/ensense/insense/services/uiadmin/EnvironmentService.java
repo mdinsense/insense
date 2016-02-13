@@ -1,14 +1,11 @@
 package com.ensense.insense.services.uiadmin;
 
+import com.ensense.insense.data.common.entity.EnvironmentCategoryGroupXref;
+import com.ensense.insense.data.uitesting.entity.*;
+import com.ensense.insense.data.uitesting.model.UiTestingSetupForm;
+
 import java.util.List;
 
-import com.cts.mint.common.entity.EnvironmentCategoryGroupXref;
-import com.cts.mint.uitesting.entity.AppEnvEnvironmentCategoryXref;
-import com.cts.mint.uitesting.entity.EnvEnvironmentCategoryXref;
-import com.cts.mint.uitesting.entity.Environment;
-import com.cts.mint.uitesting.entity.EnvironmentCategory;
-import com.cts.mint.uitesting.entity.EnvironmentLoginScript;
-import com.cts.mint.uitesting.model.UiTestingSetupForm;
 
 public interface EnvironmentService {
 

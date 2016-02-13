@@ -1,8 +1,9 @@
 package com.ensense.insense.services.uiadmin;
 
+import com.ensense.insense.data.uitesting.entity.HtmlReportsConfig;
+
 import java.util.List;
 
-import com.cts.mint.uitesting.entity.HtmlReportsConfig;
 
 public interface HtmlReportConfigService {
 	boolean addHtmlReportsConfig(HtmlReportsConfig htmlReportsConfig);

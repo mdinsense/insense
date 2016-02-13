@@ -6,7 +6,7 @@ import com.ensense.insense.data.analytics.model.SamePagesDataStore;
 import com.ensense.insense.data.analytics.model.WebAnalyticsPageData;
 import com.ensense.insense.data.uitesting.model.ErrorType;
 import com.ensense.insense.data.uitesting.model.TextImageReportData;
-import com.ensense.insense.services.analytics.model.WebAnalyticsTagData;
+import com.ensense.insense.data.analytics.model.WebAnalyticsTagData;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.*;

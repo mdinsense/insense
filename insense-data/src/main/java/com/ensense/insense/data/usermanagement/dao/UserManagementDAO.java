@@ -1,10 +1,10 @@
 package com.ensense.insense.data.usermanagement.dao;
 
-import java.util.List;
+import com.ensense.insense.data.common.entity.FunctionalityGroupRef;
+import com.ensense.insense.data.common.entity.Groups;
+import com.ensense.insense.data.common.entity.UserGroupMenuReference;
 
-import com.cts.mint.common.entity.FunctionalityGroupRef;
-import com.cts.mint.common.entity.Groups;
-import com.cts.mint.common.entity.UserGroupMenuReference;
+import java.util.List;
 
 public interface UserManagementDAO {
 	public List<Groups> getGroups();

@@ -3,9 +3,6 @@ package com.ensense.insense.data.analytics.common;
 import com.ensense.insense.data.utils.PropertyReader;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-
-
-
 public class DataSource {
 	
 	public static DriverManagerDataSource getDataSource() {

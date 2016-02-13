@@ -1,20 +1,14 @@
 package com.ensense.insense.services.reports;
 
-import java.util.Date;
+import com.ensense.insense.data.common.model.*;
+import com.ensense.insense.data.uitesting.entity.Schedule;
+import com.ensense.insense.data.uitesting.entity.ScheduleExecution;
+import com.ensense.insense.data.uitesting.entity.SuitTextImageXref;
+import com.ensense.insense.services.crawler.model.UiReportsSummary;
+import com.ensense.insense.data.model.uiadmin.form.schedule.CompareLink;
+
 import java.util.List;
 import java.util.Map;
-
-import com.cts.mint.common.model.PartialText;
-import com.cts.mint.common.model.ScheduleStatus;
-import com.cts.mint.common.model.UsageReportForm;
-import com.cts.mint.crawler.model.UiReportsSummary;
-import com.cts.mint.miscellaneous.model.ArchiveData;
-import com.cts.mint.uitesting.entity.Schedule;
-import com.cts.mint.uitesting.entity.ScheduleExecution;
-import com.cts.mint.uitesting.entity.SuitTextImageXref;
-import com.cts.mint.uitesting.model.CompareLink;
-import com.cts.mint.uitesting.model.ScheduleDetails;
-import com.cts.mint.uitesting.model.ScheduleExecutionDetail;
 
 
 public interface ScheduledService {
@@ -63,6 +57,6 @@ public interface ScheduledService {
 
 	public Map<Integer, Schedule> getScheduleMap(String scheduleId);
 	public List<SuitTextImageXref> getTextAndImageDetailsFortheSuitId(int suitId);
-	public List<ArchiveData> getScheduleDetails(UsageReportForm form);
+	//public List<ArchiveData> getScheduleDetails(UsageReportForm form);
 	public List<String> deleteScheduleExecutions(String scheduleExecutionId);
 }

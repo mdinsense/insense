@@ -1,24 +1,17 @@
 package com.ensense.insense.core.proxy;
 
-import java.net.URI;
-import java.security.Security;
-import java.util.HashMap;
-import java.util.Map;
-
+import com.ensense.insense.data.common.model.MintProxyServer;
+import com.ensense.insense.data.common.model.ScheduleDetails;
 import net.lightbody.bmp.core.har.Har;
 import net.lightbody.bmp.proxy.ProxyServer;
-import net.lightbody.bmp.proxy.http.BrowserMobHttpRequest;
-import net.lightbody.bmp.proxy.http.BrowserMobHttpResponse;
-import net.lightbody.bmp.proxy.http.RequestInterceptor;
-import net.lightbody.bmp.proxy.http.ResponseInterceptor;
-
-import org.apache.commons.lang.exception.ExceptionUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
 
-import com.cts.mint.crawler.MintProxyServer;
-import com.cts.mint.uitesting.model.ScheduleDetails;
+import java.security.Security;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BMPProxyServer {
 
@@ -59,20 +52,20 @@ public class BMPProxyServer {
 
 			logger.info("Before starting Proxy server");
 			MintProxyServer mobProxyServer = new MintProxyServer(Integer.parseInt(appConfig.getUpstreamProxyPort()));
-			mobProxyServer.start();
+			//mobProxyServer.start();
 
-			mobProxyServer.remapHost("www.google.com", "74.125.224.72");
-			mobProxyServer.remapHost("www.tiaa-cref.org","184.28.194.36");
+			//mobProxyServer.remapHost("www.google.com", "74.125.224.72");
+			//mobProxyServer.remapHost("www.tiaa-cref.org","184.28.194.36");
 			
 			//TODO
 			boolean captureHeader = true;
 			boolean captureContent = true;
 			
-			mobProxyServer.setCaptureHeaders(captureHeader);
-			mobProxyServer.setCaptureContent(captureContent);
+			//mobProxyServer.setCaptureHeaders(captureHeader);
+			//mobProxyServer.setCaptureContent(captureContent);
 
 			// intercept http request conditionally
-			mobProxyServer.addRequestInterceptor(new RequestInterceptor() {
+			/* mobProxyServer.addRequestInterceptor(new RequestInterceptor() {
 				@Override
 				public void process(BrowserMobHttpRequest request, Har har) {
 					URI requestURI = request.getMethod().getURI();
@@ -107,13 +100,13 @@ public class BMPProxyServer {
 					}
 
 				}
-			});
+			});*/
 
 			mobProxyServer = addProxyOptions(mobProxyServer, "localhost", 8888);
 		} catch (Exception e) {
 			status = false;
 			logger.error("Exception while starting the proxy server." + e);
-			logger.error("Stack Trace :"+ExceptionUtils.getStackTrace(e));
+			logger.error("Stack Trace :"+ ExceptionUtils.getStackTrace(e));
 		}
 		return status;
 	}
@@ -127,7 +120,7 @@ public class BMPProxyServer {
 				//+ upstreamLocalProxyPort);
 		mobProxyServerOptions.put("httpProxy", "localhost" + ":"
 				+ 8888);
-		mobProxyServer.setOptions(mobProxyServerOptions);
+		//mobProxyServer.setOptions(mobProxyServerOptions);
 
 		return mobProxyServer;
 	}

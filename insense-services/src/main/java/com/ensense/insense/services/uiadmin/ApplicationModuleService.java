@@ -1,13 +1,11 @@
 package com.ensense.insense.services.uiadmin;
 
-import java.util.List;
-
+import com.ensense.insense.data.uitesting.entity.ApplicationModuleXref;
+import com.ensense.insense.data.uitesting.entity.ModuleType;
+import com.ensense.insense.data.uitesting.entity.TransactionTestCase;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
-import com.cts.mint.uitesting.entity.ApplicationModuleXref;
-import com.cts.mint.uitesting.entity.ModuleType;
-import com.cts.mint.uitesting.entity.TransactionTestCase;
-
+import java.util.List;
 
 public interface ApplicationModuleService {
 

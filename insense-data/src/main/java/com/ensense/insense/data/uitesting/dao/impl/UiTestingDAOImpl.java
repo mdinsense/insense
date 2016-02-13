@@ -1,12 +1,12 @@
 package com.ensense.insense.data.uitesting.dao.impl;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Set;
-
+import com.ensense.insense.data.common.entity.SuitGroupXref;
+import com.ensense.insense.data.common.utils.DataConstants;
+import com.ensense.insense.data.common.utils.DateTimeUtil;
+import com.ensense.insense.data.uitesting.dao.UiTestingDAO;
+import com.ensense.insense.data.uitesting.entity.Suit;
+import com.ensense.insense.data.uitesting.entity.SuitBrokenReportsXref;
+import com.ensense.insense.data.uitesting.entity.SuitTextImageXref;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
@@ -15,13 +15,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cts.mint.common.entity.SuitGroupXref;
-import com.cts.mint.common.utils.Constants.KEYS;
-import com.cts.mint.uitesting.dao.UiTestingDAO;
-import com.cts.mint.uitesting.entity.Suit;
-import com.cts.mint.uitesting.entity.SuitBrokenReportsXref;
-import com.cts.mint.uitesting.entity.SuitTextImageXref;
-import com.cts.mint.util.DateTimeUtil;
+import java.util.*;
 
 @Service
 public class UiTestingDAOImpl implements UiTestingDAO {
@@ -90,9 +84,9 @@ public class UiTestingDAOImpl implements UiTestingDAO {
 				suitSet.add(suitName);
 			}
 			for(String suit : suitSet) {
-				String batchRow = KEYS.BLANK;
+				String batchRow = DataConstants.KEYS.BLANK;
 				List<String> dates = new ArrayList<String>();
-				batchRow += suit + KEYS.COMMA;
+				batchRow += suit + DataConstants.KEYS.COMMA;
 				int rowcount = 1;
 				for (Object[] obj : resultset) {
 					String suitName = String.valueOf(obj[1]);
@@ -109,8 +103,8 @@ public class UiTestingDAOImpl implements UiTestingDAO {
 				}
 				batchRow += dates.toString();
 				batchRow += ",true,{true/false},{date}";
-				batchRow = batchRow.replace("[", KEYS.BLANK);
-				batchRow = batchRow.replace("]", KEYS.BLANK);
+				batchRow = batchRow.replace("[", DataConstants.KEYS.BLANK);
+				batchRow = batchRow.replace("]", DataConstants.KEYS.BLANK);
 				batchFileData.add(batchRow);
 			}
 			

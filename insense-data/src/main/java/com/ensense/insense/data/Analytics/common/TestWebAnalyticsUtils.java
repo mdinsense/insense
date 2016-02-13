@@ -1,17 +1,12 @@
 package com.ensense.insense.data.analytics.common;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 public class TestWebAnalyticsUtils {
 

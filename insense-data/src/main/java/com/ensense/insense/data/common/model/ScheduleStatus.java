@@ -1,11 +1,9 @@
 package com.ensense.insense.data.common.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.ensense.insense.data.crawler.model.CompareConfig;
+import com.ensense.insense.data.uitesting.entity.ScheduleScript;
 
-import com.cts.mint.common.utils.ExecutionStatus;
-import com.cts.mint.crawler.model.CompareConfig;
-import com.cts.mint.uitesting.entity.ScheduleScript;
+import java.util.List;
 
 public class ScheduleStatus {
 	private Integer scheduleId;

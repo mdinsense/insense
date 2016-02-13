@@ -1,7 +1,8 @@
 package com.ensense.insense.data.schedule.dao;
 
-import com.cts.mint.uitesting.entity.Schedule;
-import com.cts.mint.uitesting.model.ScheduleDetails;
+
+import com.ensense.insense.data.common.model.ScheduleDetails;
+import com.ensense.insense.data.uitesting.entity.Schedule;
 
 public interface TestScheduleDAO {
 	public Schedule getSchedule(Schedule testSchedule);

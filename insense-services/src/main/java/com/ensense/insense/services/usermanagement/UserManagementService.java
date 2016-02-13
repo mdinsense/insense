@@ -1,10 +1,11 @@
 package com.ensense.insense.services.usermanagement;
 
+import com.ensense.insense.data.common.entity.FunctionalityGroupRef;
+import com.ensense.insense.data.common.entity.Groups;
+import com.ensense.insense.data.common.entity.UserGroupMenuReference;
+
 import java.util.List;
 
-import com.cts.mint.common.entity.FunctionalityGroupRef;
-import com.cts.mint.common.entity.Groups;
-import com.cts.mint.common.entity.UserGroupMenuReference;
 
 public interface UserManagementService{
 	public List<Groups> getGroups();

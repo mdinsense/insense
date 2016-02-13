@@ -2,8 +2,8 @@ package com.ensense.insense.data.utils;
 
 
 import com.ensense.insense.data.common.model.ScheduleDetails;
-import com.ensense.insense.services.common.utils.CommonUtils;
-import com.ensense.insense.services.common.utils.FileDirectoryUtil;
+import com.ensense.insense.data.common.utils.CommonUtils;
+import com.ensense.insense.data.common.utils.FileDirectoryUtil;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Proxy;

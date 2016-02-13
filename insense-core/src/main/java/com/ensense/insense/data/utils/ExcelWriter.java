@@ -1,5 +1,24 @@
 package com.ensense.insense.data.utils;
 
+import com.ensense.insense.core.reports.model.TextAndImageDetail;
+import com.ensense.insense.core.reports.model.TextToFind;
+import com.ensense.insense.data.analytics.model.AnalyticsData;
+import com.ensense.insense.data.analytics.model.HarReportMap;
+import com.ensense.insense.data.common.model.Link;
+import com.ensense.insense.data.common.model.PartialText;
+import com.ensense.insense.data.common.model.UsageReportResult;
+import com.ensense.insense.data.common.utils.Constants;
+import com.ensense.insense.data.model.uiadmin.form.schedule.CompareLink;
+import com.ensense.insense.services.scheduler.ReportsScheduler;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.apache.log4j.Logger;
+import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.streaming.SXSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -7,31 +26,6 @@ import java.io.OutputStream;
 import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
-
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.apache.log4j.Logger;
-import org.apache.poi.hssf.util.HSSFColor;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.IndexedColors;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.xssf.streaming.SXSSFWorkbook;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-import com.cts.mint.analytics.model.AnalyticsData;
-import com.cts.mint.analytics.model.HarReportMap;
-import com.cts.mint.common.model.Link;
-import com.cts.mint.common.model.PartialText;
-import com.cts.mint.common.model.UsageReportResult;
-import com.cts.mint.common.utils.Constants.FormatType;
-import com.cts.mint.reports.model.TextAndImageDetail;
-import com.cts.mint.reports.model.TextToFind;
-import com.cts.mint.uitesting.model.CompareLink;
-import com.cts.mint.uitesting.scheduler.ReportsScheduler;
 
 public class ExcelWriter {
 	private static Logger logger = Logger.getLogger(ReportsScheduler.class);
@@ -553,16 +547,16 @@ public class ExcelWriter {
 	            Bean2Excel oReport = new Bean2Excel();
 	            // Create an array of report column objects
 	            ReportColumn[] reportColumns = new ReportColumn[] {
-	                    new ReportColumn("slno", "SL NO", FormatType.TEXT, null, HSSFColor.LIGHT_BLUE.index),
-	                    new ReportColumn("applicationName", "Application Name", FormatType.TEXT, null, HSSFColor.LIGHT_BLUE.index),
-	                    new ReportColumn("environmentCategoryName", "Environment Name", FormatType.TEXT, null, HSSFColor.LIGHT_BLUE.index),
-	                    new ReportColumn("groupName", "User Group", FormatType.TEXT, null, HSSFColor.LIGHT_BLUE.index),
-	                    new ReportColumn("userName", "User Name", FormatType.TEXT, null, HSSFColor.LIGHT_BLUE.index),
-	                    new ReportColumn("solutionTypeName", "Solution Type", FormatType.TEXT, null, HSSFColor.LIGHT_BLUE.index),
-	                    new ReportColumn("functionalityName", "Functionality", FormatType.TEXT, null, HSSFColor.LIGHT_BLUE.index),
-	                    new ReportColumn("startDate", "Start Date", FormatType.TEXT, null, HSSFColor.LIGHT_BLUE.index),
-	                    new ReportColumn("endDate", "End Date", FormatType.TEXT, null, HSSFColor.LIGHT_BLUE.index),
-	                    new ReportColumn("notes", "Notes", FormatType.TEXT, null, HSSFColor.LIGHT_BLUE.index)};
+	                    new ReportColumn("slno", "SL NO", Constants.FormatType.TEXT, null, HSSFColor.LIGHT_BLUE.index),
+	                    new ReportColumn("applicationName", "Application Name", Constants.FormatType.TEXT, null, HSSFColor.LIGHT_BLUE.index),
+	                    new ReportColumn("environmentCategoryName", "Environment Name", Constants.FormatType.TEXT, null, HSSFColor.LIGHT_BLUE.index),
+	                    new ReportColumn("groupName", "User Group", Constants.FormatType.TEXT, null, HSSFColor.LIGHT_BLUE.index),
+	                    new ReportColumn("userName", "User Name", Constants.FormatType.TEXT, null, HSSFColor.LIGHT_BLUE.index),
+	                    new ReportColumn("solutionTypeName", "Solution Type", Constants.FormatType.TEXT, null, HSSFColor.LIGHT_BLUE.index),
+	                    new ReportColumn("functionalityName", "Functionality", Constants.FormatType.TEXT, null, HSSFColor.LIGHT_BLUE.index),
+	                    new ReportColumn("startDate", "Start Date", Constants.FormatType.TEXT, null, HSSFColor.LIGHT_BLUE.index),
+	                    new ReportColumn("endDate", "End Date", Constants.FormatType.TEXT, null, HSSFColor.LIGHT_BLUE.index),
+	                    new ReportColumn("notes", "Notes", Constants.FormatType.TEXT, null, HSSFColor.LIGHT_BLUE.index)};
 	 
 	            // Create a worksheet with our usageReport data and report columns
 	            oReport.addSheet(usageReport, reportColumns, "sheet1"); 

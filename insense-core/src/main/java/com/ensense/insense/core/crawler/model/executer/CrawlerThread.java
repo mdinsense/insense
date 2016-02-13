@@ -1,16 +1,16 @@
 package com.ensense.insense.core.crawler.model.executer;
 
 import com.ensense.insense.core.transaction.model.jaxb.LinkNavigation;
-import com.ensense.insense.data.utils.Constants;
-import com.ensense.insense.data.utils.scheduler.SmartUserV2;
 import com.ensense.insense.data.common.model.*;
+import com.ensense.insense.data.common.utils.CommonUtils;
+import com.ensense.insense.data.common.utils.Constants;
+import com.ensense.insense.data.common.utils.FileDirectoryUtil;
+import com.ensense.insense.data.common.utils.WebDriverListener;
 import com.ensense.insense.data.uitesting.entity.ExcludeUrl;
 import com.ensense.insense.data.uitesting.entity.IncludeUrl;
 import com.ensense.insense.data.uitesting.entity.ScheduleScriptXref;
 import com.ensense.insense.data.uitesting.model.ErrorType;
-import com.ensense.insense.services.common.utils.CommonUtils;
-import com.ensense.insense.services.common.utils.FileDirectoryUtil;
-import com.ensense.insense.services.crawler.WebDriverListener;
+import com.ensense.insense.data.utils.scheduler.SmartUserV2;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;

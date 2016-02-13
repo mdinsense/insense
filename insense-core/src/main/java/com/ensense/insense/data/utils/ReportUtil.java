@@ -1,21 +1,19 @@
 package com.ensense.insense.data.utils;
 
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
+import com.ensense.insense.data.common.model.CrawlConfig;
+import com.ensense.insense.data.common.model.Link;
+import com.ensense.insense.data.common.utils.Constants;
+import com.ensense.insense.data.common.utils.ZipFileUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 
-import com.cts.mint.common.JsonReaderWriter;
-import com.cts.mint.common.ZipFileUtils;
-import com.cts.mint.common.model.Link;
-import com.cts.mint.common.utils.Constants.FILE;
-import com.cts.mint.crawler.model.CrawlConfig;
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReportUtil {
 	private static Logger logger = Logger.getLogger(ReportUtil.class);
@@ -49,7 +47,7 @@ public class ReportUtil {
 			if(!ZipFileFolder.exists()) {
 				ZipFileFolder.mkdirs();
 			}*/
-			ZipFileUtils.zipFolder(normalizedImageTextdirectoryPath, normalizedImageTextdirectoryPath + FILE.ZIP);
+			ZipFileUtils.zipFolder(normalizedImageTextdirectoryPath, normalizedImageTextdirectoryPath + Constants.FILE.ZIP);
 			normalized = true;
 		} catch (Exception e) {
            e.printStackTrace();

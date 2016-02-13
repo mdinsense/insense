@@ -1,14 +1,15 @@
 package com.ensense.insense.data.uitesting.dao;
 
+import com.ensense.insense.data.common.model.ScheduleExecutionDetail;
+import com.ensense.insense.data.common.model.UsageReportForm;
+import com.ensense.insense.data.uitesting.entity.Schedule;
+import com.ensense.insense.data.uitesting.entity.ScheduleExecution;
+import com.ensense.insense.data.uitesting.entity.SuitTextImageXref;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import com.cts.mint.common.model.UsageReportForm;
-import com.cts.mint.uitesting.entity.Schedule;
-import com.cts.mint.uitesting.entity.ScheduleExecution;
-import com.cts.mint.uitesting.entity.SuitTextImageXref;
-import com.cts.mint.uitesting.model.ScheduleExecutionDetail;
 
 public interface ScheduledServiceDAO {
 

@@ -1,5 +1,21 @@
 package com.ensense.insense.core.crawler.model.executer;
 
+import com.ensense.insense.data.common.model.CrawlConfig;
+import com.ensense.insense.data.common.model.ExecutionStatus;
+import com.ensense.insense.data.common.model.Link;
+import com.ensense.insense.data.common.model.ScheduleDetails;
+import com.ensense.insense.data.common.utils.CommonUtils;
+import com.ensense.insense.data.common.utils.DateTimeUtil;
+import com.ensense.insense.data.common.utils.JsonReaderWriter;
+import com.ensense.insense.data.common.utils.UiTestingConstants;
+import com.ensense.insense.data.uitesting.entity.ApplicationConfig;
+import com.ensense.insense.data.utils.EmailUtil;
+import com.ensense.insense.data.utils.SerializeStatus;
+import com.ensense.insense.services.reports.TestScheduleService;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.apache.log4j.Logger;
+import org.springframework.context.MessageSource;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,22 +24,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.apache.log4j.Logger;
-import org.springframework.context.MessageSource;
-
-import com.cts.mint.common.JsonReaderWriter;
-import com.cts.mint.common.model.Link;
-import com.cts.mint.common.utils.CommonUtils;
-import com.cts.mint.common.utils.ExecutionStatus;
-import com.cts.mint.common.utils.SerializeStatus;
-import com.cts.mint.crawler.model.CrawlConfig;
-import com.cts.mint.reports.service.TestScheduleService;
-import com.cts.mint.uitesting.entity.ApplicationConfig;
-import com.cts.mint.uitesting.model.ScheduleDetails;
-import com.cts.mint.uitesting.model.UiTestingConstants;
-import com.cts.mint.util.DateTimeUtil;
-import com.cts.mint.util.EmailUtil;
 
 
 public class CrawlerThreadExecutor {
@@ -89,7 +89,7 @@ public class CrawlerThreadExecutor {
 	}*/
 
 	public ScheduleDetails startThreadCrawling(MessageSource messageSource, MessageSource configProperties,
-			ScheduleDetails appConfig,TestScheduleService testScheduleService, CrawlerThread initialCrawlerThread) {
+											   ScheduleDetails appConfig, TestScheduleService testScheduleService, CrawlerThread initialCrawlerThread) {
 		String emailNotificationRecepients = getNotificationEmailRecepients(messageSource);
 				
 		if ( appConfig.getApplicationName().equals("UD_INTRANET")){

@@ -1,6 +1,7 @@
 package com.ensense.insense.core.crawler.model;
 
-import com.cts.mint.common.model.Link;
+
+import com.ensense.insense.data.common.model.Link;
 
 public class NormalizedLink {
 

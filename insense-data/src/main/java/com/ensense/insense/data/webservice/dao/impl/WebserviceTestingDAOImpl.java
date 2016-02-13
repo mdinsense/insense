@@ -1,18 +1,14 @@
 package com.ensense.insense.data.webservice.dao.impl;
 
-import java.sql.Clob;
-import java.sql.Time;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.regex.Matcher;
-
+import com.ensense.insense.data.common.entity.Users;
+import com.ensense.insense.data.common.utils.DateTimeUtil;
+import com.ensense.insense.data.webservice.dao.WebserviceTestingDAO;
+import com.ensense.insense.data.webservice.entity.*;
+import com.ensense.insense.data.webservice.model.WSReportsData;
+import com.ensense.insense.data.webservice.model.WSSuiteDetails;
+import com.ensense.insense.data.webservice.model.WebserviceSetupForm;
+import com.ensense.insense.data.webservice.model.WsDataset;
+import com.eviware.soapui.support.types.StringToStringMap;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
@@ -23,34 +19,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import com.cts.mint.common.entity.Users;
-import com.cts.mint.util.DateTimeUtil;
-import com.cts.mint.util.DateUtil;
-import com.cts.mint.webservice.dao.WebserviceTestingDAO;
-import com.cts.mint.webservice.entity.WSBaseline;
-import com.cts.mint.webservice.entity.WSExecutionStatus;
-import com.cts.mint.webservice.entity.WSPingResults;
-import com.cts.mint.webservice.entity.WSPingSchedule;
-import com.cts.mint.webservice.entity.WSReports;
-import com.cts.mint.webservice.entity.WSResults;
-import com.cts.mint.webservice.entity.WSSchedule;
-import com.cts.mint.webservice.entity.WebserviceOperations;
-import com.cts.mint.webservice.entity.WebserviceSuite;
-import com.cts.mint.webservice.entity.WebserviceSuiteParamSetTable;
-import com.cts.mint.webservice.entity.WebserviceSuiteService;
-import com.cts.mint.webservice.entity.Webservices;
-import com.cts.mint.webservice.entity.WebservicesPingTest;
-import com.cts.mint.webservice.entity.WsEndpointDetails;
-import com.cts.mint.webservice.entity.WsOperationHeaderParameters;
-import com.cts.mint.webservice.entity.WsOperationParameter;
-import com.cts.mint.webservice.entity.WsOperationParameterValue;
-import com.cts.mint.webservice.entity.WsOperationXmlParameter;
-import com.cts.mint.webservice.entity.WsParameterAndSetId;
-import com.cts.mint.webservice.model.WSReportsData;
-import com.cts.mint.webservice.model.WSSuiteDetails;
-import com.cts.mint.webservice.model.WebserviceSetupForm;
-import com.cts.mint.webservice.model.WsDataset;
-import com.eviware.soapui.support.types.StringToStringMap;
+import java.sql.Clob;
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.regex.Matcher;
+
 
 @Service
 public class WebserviceTestingDAOImpl implements WebserviceTestingDAO {
@@ -698,7 +673,7 @@ public class WebserviceTestingDAOImpl implements WebserviceTestingDAO {
 
 	@Override
 	public List<WsDataset> getTestSoapParameterSets(int reqdOprId,
-			int environmentId) {
+													int environmentId) {
 		logger.debug("Entry: getTestSoapParameterSets");
 
 		Query query = null;
@@ -1886,7 +1861,7 @@ public class WebserviceTestingDAOImpl implements WebserviceTestingDAO {
 
 	@Override
 	public StringToStringMap getCustomHeadersValues(Integer environmentId,
-			int parameterSetId, Integer operationId) {
+													int parameterSetId, Integer operationId) {
 		logger.debug("Entry: getCustomHeadersValues");
 
 		Query query = null;
@@ -2245,7 +2220,7 @@ public class WebserviceTestingDAOImpl implements WebserviceTestingDAO {
 							+ "and ts.wsScheduleId not in (select wsScheduleId from WSExecutionStatus)");
 			int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
 			int currentMins = Calendar.getInstance().get(Calendar.MINUTE);
-			query.setParameter("dayName", "%"+ String.valueOf(DateUtil.DAYS[new Date().getDay()]) +"%");
+			//query.setParameter("dayName", "%"+ String.valueOf(DateUtil.DAYS[new Date().getDay()]) +"%");
 			query.setParameter("currentHour",currentHour);
 			query.setParameter("currentMins",currentMins);
 		objList = query.list();
@@ -2253,10 +2228,10 @@ public class WebserviceTestingDAOImpl implements WebserviceTestingDAO {
 				insertSchedules(objList);
 			}
 			
-			Object dialect = 
-			       org.apache.commons.beanutils.PropertyUtils.getProperty(
-			    		   sessionFactory
-			   			.getCurrentSession().getSessionFactory(), "dialect");
+			Object dialect = "";
+			       //PropertyUtils.getProperty(
+			    	//	   sessionFactory
+			   		//	.getCurrentSession().getSessionFactory(), "dialect");
 
 		    String dialectString = dialect.toString();
 		    if(dialectString.contains("MySQL")){
@@ -2277,9 +2252,9 @@ public class WebserviceTestingDAOImpl implements WebserviceTestingDAO {
 				currentMins = Calendar.getInstance().get(Calendar.MINUTE);
 				query.setParameter("currentHour",currentHour);
 				query.setParameter("currentMins",currentMins);
-				query.setParameter("dayName", "%"+ String.valueOf(DateUtil.DAYS[new Date().getDay()]) +"%");
-				 query.setTimestamp("CurrentDateStart", DateTimeUtil.getStartOfTheDay(new Date()));
-				 query.setTimestamp("CurrentDateEnd", DateTimeUtil.getEndOfTheDay(new Date()));
+				//query.setParameter("dayName", "%"+ String.valueOf(DateUtil.DAYS[new Date().getDay()]) +"%");
+				 //query.setTimestamp("CurrentDateStart", DateTimeUtil.getStartOfTheDay(new Date()));
+				 //query.setTimestamp("CurrentDateEnd", DateTimeUtil.getEndOfTheDay(new Date()));
 		    } else {
 		    	query = sessionFactory
 				.getCurrentSession()
@@ -2299,7 +2274,7 @@ public class WebserviceTestingDAOImpl implements WebserviceTestingDAO {
 				currentMins = Calendar.getInstance().get(Calendar.MINUTE);
 				query.setParameter("currentHour",currentHour);
 				query.setParameter("currentMins",currentMins);
-				query.setParameter("dayName", "%"+ String.valueOf(DateUtil.DAYS[new Date().getDay()]) +"%");
+				//query.setParameter("dayName", "%"+ String.valueOf(DateUtil.DAYS[new Date().getDay()]) +"%");
 				
 		    }
 			/*String currentDate = DateUtil.convertToString(new Date(), "dd-MM-yyyy");
@@ -2465,7 +2440,7 @@ public class WebserviceTestingDAOImpl implements WebserviceTestingDAO {
 
 	@Override
 	public List<WSReportsData> getWSReports(int webserviceSuiteId,
-			int wsScheduleId) {
+											int wsScheduleId) {
 		logger.info("Entry :getWSReports, webserviceSuiteId->"
 				+ webserviceSuiteId + " wsScheduleId->" + wsScheduleId);
 		List<WSReportsData> WSReportsDataList = new ArrayList<WSReportsData>();

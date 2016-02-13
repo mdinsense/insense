@@ -1,16 +1,16 @@
 package com.ensense.insense.data.schedule.dao.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.ensense.insense.data.schedule.dao.TestResultsDAO;
+import com.ensense.insense.data.uitesting.entity.Results;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cts.mint.dao.TestResultsDAO;
-import com.cts.mint.uitesting.entity.Results;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Service
 public class TestResultsDAOImpl implements TestResultsDAO {

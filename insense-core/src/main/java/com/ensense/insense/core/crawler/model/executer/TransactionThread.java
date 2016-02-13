@@ -1,24 +1,24 @@
 package com.ensense.insense.core.crawler.model.executer;
 
-import java.io.File;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
-
+import com.ensense.insense.data.common.model.CrawlConfig;
+import com.ensense.insense.data.common.model.ExecutionStatus;
+import com.ensense.insense.data.common.model.ScheduleDetails;
+import com.ensense.insense.data.common.utils.Constants;
+import com.ensense.insense.data.common.utils.FileDirectoryUtil;
+import com.ensense.insense.data.common.utils.UiTestingConstants;
+import com.ensense.insense.data.uitesting.entity.ScheduleScript;
+import com.ensense.insense.data.utils.BrowserDriverLoaderUtil;
+import com.ensense.insense.data.utils.BrowserEnum;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.springframework.context.MessageSource;
 
-import com.cts.mint.common.utils.BrowserEnum;
-import com.cts.mint.common.utils.ExecutionStatus;
-import com.cts.mint.common.utils.Constants.FILE;
-import com.cts.mint.crawler.model.CrawlConfig;
-import com.cts.mint.uitesting.entity.ScheduleScript;
-import com.cts.mint.uitesting.model.ScheduleDetails;
-import com.cts.mint.uitesting.model.UiTestingConstants;
-import com.cts.mint.util.BrowserDriverLoaderUtil;
-import com.cts.mint.util.FileDirectoryUtil;
+import java.io.File;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
 
 public class TransactionThread implements Runnable {
 
@@ -32,7 +32,7 @@ public class TransactionThread implements Runnable {
 	private CrawlConfig crawlConfig;
 	
 	public TransactionThread(int processCount, MessageSource messageSource,
-			MessageSource configProperties, ScheduleDetails appConfig, CrawlConfig crawlConfig, ScheduleScript scheduleScript) {
+							 MessageSource configProperties, ScheduleDetails appConfig, CrawlConfig crawlConfig, ScheduleScript scheduleScript) {
 		this.appConfig = appConfig;
 		this.messageSource = messageSource;
 		this.configProperties = configProperties;
@@ -82,7 +82,7 @@ public class TransactionThread implements Runnable {
 		try{
 			logger.info("appConfig getBrowserType() :"+appConfig.getBrowserType());
 			
-			BrowserDriverLoaderUtil browserDriverLoaderUtil = new BrowserDriverLoaderUtil(); 
+			BrowserDriverLoaderUtil browserDriverLoaderUtil = new BrowserDriverLoaderUtil();
 			if ( appConfig.getBrowserType().equals(BrowserEnum.CHROME.getBrowserTypeName())){
 				driver = browserDriverLoaderUtil.getChromeDriver(appConfig, configProperties);
 				eventListener = CrawlerSetup.getWebDriverTransactionListener(driver,
@@ -94,8 +94,8 @@ public class TransactionThread implements Runnable {
 			}else{
 				webDriver = getWebDriver(appConfig, localcrawlConfig, configProperties, processCount);
 			}
-			String path =com.cts.mint.common.utils.FileDirectoryUtil.getTransactionTestCaseRootPath(configProperties);
-			path= path + scheduleScript.getTransactionTestCase().getTestCasePath() + FILE.CLASS;
+			String path =FileDirectoryUtil.getTransactionTestCaseRootPath(configProperties);
+			path= path + scheduleScript.getTransactionTestCase().getTestCasePath() + Constants.FILE.CLASS;
 			logger.info("Executing the Transaction script :"+path);
 			scheduleScript.setExecutionStartDate(new Date());
 			//testCasefiles.add(new File(path));

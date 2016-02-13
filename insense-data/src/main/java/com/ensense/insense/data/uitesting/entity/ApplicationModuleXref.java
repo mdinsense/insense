@@ -1,7 +1,7 @@
 package com.ensense.insense.data.uitesting.entity;
 
-import com.ensense.insense.data.common.util.JsonReaderWriter;
-import com.ensense.insense.data.common.util.MintFileUtils;
+import com.ensense.insense.data.common.utils.JsonReaderWriter;
+import com.ensense.insense.data.common.utils.MintFileUtils;
 import com.ensense.insense.data.uitesting.model.ModuleType;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;

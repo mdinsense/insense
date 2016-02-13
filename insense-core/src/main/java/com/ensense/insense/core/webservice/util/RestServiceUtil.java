@@ -1,29 +1,11 @@
 package com.ensense.insense.core.webservice.util;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.InetAddress;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
-
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeUtility;
-import javax.ws.rs.core.MediaType;
-
+import com.ensense.insense.data.webservice.entity.WsOperationParameter;
+import com.eviware.soapui.support.types.StringToStringMap;
+import com.predic8.wadl.Application;
+import com.predic8.wadl.Resource;
+import com.predic8.wadl.Resources;
+import com.predic8.wadl.WADLParser;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -36,14 +18,15 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpParams;
 import org.apache.log4j.Logger;
 
-import com.cts.mint.webservice.entity.WsOperationParameter;
-import com.cts.mint.webservice.entity.WsOperationXmlParameter;
-import com.cts.mint.webservice.util.WebServiceSecurity;
-import com.eviware.soapui.support.types.StringToStringMap;
-import com.predic8.wadl.Application;
-import com.predic8.wadl.Resource;
-import com.predic8.wadl.Resources;
-import com.predic8.wadl.WADLParser;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeUtility;
+import javax.ws.rs.core.MediaType;
+import java.io.*;
+import java.net.InetAddress;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
 * <h1>RestServiceUtil</h1>
@@ -203,7 +186,8 @@ public class RestServiceUtil {
 	 * @return xmlReq The sesult XML
 	 */
 	public static String getRequestXMLFromXSD(Resource selectedNewResource, String xsdFileName ) {
-		String requestingObject = selectedNewResource.getMethods().get(0).getRequest().getRepresentations().get(0).getElementPN().getLocalName();
+		String requestingObject = selectedNewResource.getMethods().get(0).getRequest().getRepresentations().get(0).getRefElementName();
+				;
 		Boolean optionalParamFlag = true;
 		String xmlReq = XMLGeneratorFromXSD.generateXML(requestingObject, optionalParamFlag, xsdFileName);
 		return xmlReq;
@@ -339,8 +323,8 @@ public class RestServiceUtil {
 	}
 
 	public static String getRestServiceResponse(String requestPath, String methodType, HttpParams queryParams,
-			String contentType, StringEntity stringEntity, List<WsOperationParameter> headers, int environmentID,
-			StringToStringMap customHeaders) {
+												String contentType, StringEntity stringEntity, List<WsOperationParameter> headers, int environmentID,
+												StringToStringMap customHeaders) {
 		
 		String responseString = "";
 		HttpClient client = new DefaultHttpClient();

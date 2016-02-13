@@ -1,8 +1,8 @@
 package com.ensense.insense.data.uitesting.dao.impl.mintv4;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.ensense.insense.data.uiadmin.form.schedule.mintv4.TestSuitDetails;
+import com.ensense.insense.data.uitesting.dao.mintv4.TestSuitDAO;
+import com.ensense.insense.data.uitesting.entity.mintv4.*;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
@@ -12,17 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.cts.mint.common.utils.Constants;
-import com.cts.mint.uitesting.dao.mintv4.TestSuitDAO;
-import com.cts.mint.uitesting.entity.mintv4.TestEnvironment;
-import com.cts.mint.uitesting.entity.mintv4.TestLoginDetail;
-import com.cts.mint.uitesting.entity.mintv4.TestSuit;
-import com.cts.mint.uitesting.entity.mintv4.TestSuitBrowserConfig;
-import com.cts.mint.uitesting.entity.mintv4.TestSuitCompareConfigXref;
-import com.cts.mint.uitesting.entity.mintv4.TestSuitIncludeExcludeXref;
-import com.cts.mint.uitesting.entity.mintv4.TestSuitRemoveTagOrTextXref;
-import com.cts.mint.uitesting.entity.mintv4.TestSuitTextImageXref;
-import com.cts.mint.uitesting.model.mintv4.TestSuitDetails;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class TestSuitDAOImpl implements TestSuitDAO {
@@ -270,7 +261,7 @@ public class TestSuitDAOImpl implements TestSuitDAO {
 							.createQuery("from TestSuitTextImageXref where suitId=:suitId");
 					query.setParameter("suitId",testSuitDetails.getTestSuit().getSuitId());
 					testSuitDetails.setTestSuitTextImageXrefList(query.list());
-					testSuitDetails.setSuitType(Constants.MINTV4);
+					//testSuitDetails.setSuitType(Constants.MINTV4);
 					testSuitDetailsList.add(testSuitDetails);
 				}
 			}

@@ -1,19 +1,18 @@
 package com.ensense.insense.core.crawler.model.executer;
 
-import com.ensense.insense.core.crawler.model.CompareConfig;
 import com.ensense.insense.core.crawler.model.ReportsConfig;
-import com.ensense.insense.core.utils.*;
+import com.ensense.insense.core.crawler.model.executer.browser.BrowserUtils;
 import com.ensense.insense.data.common.model.CrawlConfig;
 import com.ensense.insense.data.common.model.ExecutionStatus;
 import com.ensense.insense.data.common.model.Link;
 import com.ensense.insense.data.common.model.ScheduleDetails;
-import com.ensense.insense.data.common.util.MintFileUtils;
+import com.ensense.insense.data.common.utils.*;
+import com.ensense.insense.data.crawler.model.CompareConfig;
 import com.ensense.insense.data.uitesting.entity.ScheduleScript;
-import com.ensense.insense.data.utils.*;
-import com.ensense.insense.services.common.utils.CommonUtils;
-import com.ensense.insense.services.common.utils.FileDirectoryUtil;
-import com.ensense.insense.data.common.utils.UiTestingConstants;
-import com.ensense.insense.services.crawler.WebDriverListener;
+import com.ensense.insense.data.utils.DateTimeUtil;
+import com.ensense.insense.data.utils.EncrypDecryptUtil;
+import com.ensense.insense.data.utils.EncryptionUtil;
+import com.ensense.insense.data.utils.JsonReaderWriter;
 import com.ensense.insense.services.reports.TestScheduleService;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -31,6 +30,8 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.List;
+
+;
 
 public class CrawlerSetup {
 	private static final Logger logger = Logger.getLogger(CrawlerSetup.class);

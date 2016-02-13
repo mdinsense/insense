@@ -1,7 +1,7 @@
 package com.ensense.insense.data.analytics.dao.impl;
 
-import java.util.List;
-
+import com.ensense.insense.data.analytics.dao.DetailViewTableDAO;
+import com.ensense.insense.data.analytics.entity.DetailedView;
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -9,8 +9,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cts.mint.analytics.dao.DetailViewTableDAO;
-import com.cts.mint.analytics.entity.DetailedView;
+import java.util.List;
+
 
 //import com.example.tests.DataSource;
 @Service

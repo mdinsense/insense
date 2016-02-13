@@ -1,29 +1,20 @@
 package com.ensense.insense.data.analytics.common;
 
-import java.io.File;
-import java.io.InputStream;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.zip.ZipFile;
-
-import org.apache.commons.io.FileUtils;
+import com.ensense.insense.data.common.utils.HtmlParserUtil;
+import com.ensense.insense.data.common.utils.MintFileUtils;
+import com.ensense.insense.data.common.utils.ZipFileUtils;
+import edu.umass.cs.benchlab.har.*;
+import edu.umass.cs.benchlab.har.tools.HarFileReader;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 
-import com.cts.mint.common.MintFileUtils;
-import com.cts.mint.common.ZipFileUtils;
-import com.cts.mint.htmlParser.HtmlParserUtil;
-
-import edu.umass.cs.benchlab.har.HarEntries;
-import edu.umass.cs.benchlab.har.HarEntry;
-import edu.umass.cs.benchlab.har.HarLog;
-import edu.umass.cs.benchlab.har.HarPage;
-import edu.umass.cs.benchlab.har.HarWarning;
-import edu.umass.cs.benchlab.har.tools.HarFileReader;
+import java.io.File;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.zip.ZipFile;
 
 public class HarReportsUtils {
 	private static final Logger logger = Logger

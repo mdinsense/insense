@@ -2,8 +2,6 @@
 
 package com.ensense.insense.data.analytics.model;
 
-import com.ensense.insense.services.analytics.model.WebAnalyticsTagData;
-
 /**
  * The class for the detailed_view_table database table. This has all columns and the unmarshalled xml column
  * 

@@ -1,5 +1,7 @@
 package com.ensense.insense.core.webservice.model;
 
+import com.ensense.insense.data.webservice.model.WsDataset;
+
 public class WSSuiteParams {
 
 	private int serviceId;

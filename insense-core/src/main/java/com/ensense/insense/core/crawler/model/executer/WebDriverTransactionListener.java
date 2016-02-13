@@ -4,7 +4,7 @@ import com.ensense.insense.data.common.model.CrawlConfig;
 import com.ensense.insense.data.common.model.HtmlFileDetails;
 import com.ensense.insense.data.common.model.Link;
 import com.ensense.insense.data.common.model.ScheduleDetails;
-import com.ensense.insense.data.common.util.MintFileCaptureUtil;
+import com.ensense.insense.data.common.utils.MintFileCaptureUtil;
 import com.ensense.insense.data.uitesting.entity.ScheduleScript;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;

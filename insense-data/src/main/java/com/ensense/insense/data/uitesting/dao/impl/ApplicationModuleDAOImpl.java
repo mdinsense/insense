@@ -1,9 +1,12 @@
 package com.ensense.insense.data.uitesting.dao.impl;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import org.apache.commons.lang.exception.ExceptionUtils;
+import com.ensense.insense.data.common.utils.Constants;
+import com.ensense.insense.data.uitesting.dao.ApplicationModuleDAO;
+import com.ensense.insense.data.uitesting.entity.ApplicationModuleXref;
+import com.ensense.insense.data.uitesting.entity.ModuleType;
+import com.ensense.insense.data.uitesting.entity.TransactionTestCase;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
@@ -11,11 +14,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cts.mint.common.utils.Constants.EnvironmentCategoryENUM;
-import com.cts.mint.uitesting.dao.ApplicationModuleDAO;
-import com.cts.mint.uitesting.entity.ApplicationModuleXref;
-import com.cts.mint.uitesting.entity.ModuleType;
-import com.cts.mint.uitesting.entity.TransactionTestCase;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ApplicationModuleDAOImpl implements ApplicationModuleDAO {
@@ -172,7 +172,7 @@ public class ApplicationModuleDAOImpl implements ApplicationModuleDAO {
 			query.setParameter("applicationId", applicationId);
 			query.setParameter("environmentCategoryId", categoryId);
 			query.setParameter("environmentCategoryIdALL",
-					EnvironmentCategoryENUM.ALL.getEnvironmentCategoryId());
+					Constants.EnvironmentCategoryENUM.ALL.getEnvironmentCategoryId());
 			applicationModuleList = query.list();
 		} catch (Exception exp) {
 			logger.error("Exception in getModuleTypeList");
@@ -231,7 +231,7 @@ public class ApplicationModuleDAOImpl implements ApplicationModuleDAO {
 			query.setParameter("applicationModuleXrefId",
 					applicationModuleXref.getApplicationModuleXrefId());
 			query.setParameter("environmentCategoryId",
-					EnvironmentCategoryENUM.ALL.getEnvironmentCategoryId());
+					Constants.EnvironmentCategoryENUM.ALL.getEnvironmentCategoryId());
 
 			applicationModuleList = query.list();
 			if (applicationModuleList != null

@@ -1,5 +1,14 @@
 package com.ensense.insense.core.crawler.model.executer;
 
+import com.ensense.insense.data.common.model.CrawlConfig;
+import com.ensense.insense.data.common.model.ScheduleDetails;
+import com.ensense.insense.data.uitesting.entity.ScheduleScript;
+import com.ensense.insense.data.uitesting.entity.ScheduleScriptXref;
+import com.ensense.insense.data.utils.SerializeStatus;
+import com.ensense.insense.services.reports.TestScheduleService;
+import org.apache.log4j.Logger;
+import org.springframework.context.MessageSource;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -7,21 +16,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import org.apache.log4j.Logger;
-import org.springframework.context.MessageSource;
-
-import com.cts.mint.common.utils.SerializeStatus;
-import com.cts.mint.crawler.model.CrawlConfig;
-import com.cts.mint.reports.service.TestScheduleService;
-import com.cts.mint.uitesting.entity.ScheduleScript;
-import com.cts.mint.uitesting.entity.ScheduleScriptXref;
-import com.cts.mint.uitesting.model.ScheduleDetails;
 
 public class TransactionThreadExecutor {
 	private static Logger logger = Logger.getLogger(TransactionThreadExecutor.class);
 	
 	public ScheduleDetails executeTransactionThreads(MessageSource messageSource, MessageSource configProperties, CrawlerThread initialCrawlerThread,
-			ScheduleDetails appConfig, TestScheduleService testScheduleService) throws Exception {
+													 ScheduleDetails appConfig, TestScheduleService testScheduleService) throws Exception {
 		logger.info("Entry :executeTransactionThreads");
 		int maxThreadCount = appConfig.getNoOfThreads();
 		maxThreadCount = 10;
@@ -61,7 +61,7 @@ public class TransactionThreadExecutor {
 		while ( scheduleScriptQueue.size() > 0 || activeThreadCount > 0 ){
 			if ( activeThreadCount < maxThreadCount && scheduleScriptQueue.size() > 0 ){
 				ScheduleScript scheduleScript = scheduleScriptQueue.poll();
-				CrawlConfig crawlConfig = new CrawlConfig(); 
+				CrawlConfig crawlConfig = new CrawlConfig();
 				TransactionThread ct = new TransactionThread(processCount, messageSource,
 						configProperties, appConfig, initialCrawlerThread.getCrawlConfig(), scheduleScript);
 				

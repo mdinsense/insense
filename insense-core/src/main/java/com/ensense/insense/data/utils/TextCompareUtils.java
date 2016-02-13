@@ -1,15 +1,9 @@
 package com.ensense.insense.data.utils;
 
-import java.util.Date;
-import java.util.LinkedList;
-
 import org.apache.commons.collections.CollectionUtils;
 
-import com.cts.mint.common.MintFileUtils;
-import com.cts.mint.util.DiffMatchPatch;
-import com.cts.mint.util.DiffMatchPatch.Diff;
-
-
+import java.util.Date;
+import java.util.LinkedList;
 
 public class TextCompareUtils {
 	
@@ -25,12 +19,12 @@ public class TextCompareUtils {
 	    System.out.println("Length of file 2:"+s1.length());
 	    
 	    System.out.println("Before start :"+new Date());
-	    LinkedList<Diff> diffs = getDifferencesBetweenTextFile( s0, s1);
+	    LinkedList<DiffMatchPatch.Diff> diffs = getDifferencesBetweenTextFile( s0, s1);
 	    System.out.println("End :"+new Date());
 	    
 	    System.out.println("diff count :"+diffs.size());
 	    double differenceLength = 0;
-	    for (Diff aDiff : diffs) {
+	    for (DiffMatchPatch.Diff aDiff : diffs) {
 	        String text = aDiff.text;
 	        switch (aDiff.operation) {
 	        case INSERT:
@@ -49,10 +43,10 @@ public class TextCompareUtils {
 	    System.out.println("differenceLength :"+differenceLength);
 	    System.out.println("percentage Match :"+ (1.0 - (differenceLength/s0.length())) * 100 );
 	}
-	public static LinkedList<Diff> getDifferencesBetweenTextFile( String text1, String text2) {
+	public static LinkedList<DiffMatchPatch.Diff> getDifferencesBetweenTextFile(String text1, String text2) {
 		DiffMatchPatch dmp = new DiffMatchPatch();
 		dmp.Diff_Timeout = 0;
-		LinkedList<Diff> difference = new LinkedList<Diff>();
+		LinkedList<DiffMatchPatch.Diff> difference = new LinkedList<DiffMatchPatch.Diff>();
 
 		try {
 			difference = dmp.diff_main(text2, text1, false);
@@ -64,7 +58,7 @@ public class TextCompareUtils {
 		return difference;
 	}
 	
-	public static boolean createTextDiffFile(LinkedList<Diff> difference, String differenceFilePath){
+	public static boolean createTextDiffFile(LinkedList<DiffMatchPatch.Diff> difference, String differenceFilePath){
 		DiffMatchPatch dmp = new DiffMatchPatch();
 		try{
 			if (CollectionUtils.isNotEmpty(difference)) {

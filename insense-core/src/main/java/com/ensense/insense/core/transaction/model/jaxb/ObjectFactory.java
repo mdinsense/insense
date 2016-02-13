@@ -9,7 +9,7 @@
 package com.ensense.insense.core.transaction.model.jaxb;
 
 import javax.xml.bind.annotation.XmlRegistry;
-import com.cts.mint.transaction.model.jaxb.LinkNavigation.NavigationDetails;
+
 
 
 /**
@@ -38,11 +38,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link NavigationDetails }
+     * Create an instance of {@link  }
      * 
      */
-    public NavigationDetails createLinkNavigationNavigationDetails() {
-        return new NavigationDetails();
+    public LinkNavigation.NavigationDetails createLinkNavigationNavigationDetails() {
+        return new LinkNavigation.NavigationDetails();
     }
 
     /**

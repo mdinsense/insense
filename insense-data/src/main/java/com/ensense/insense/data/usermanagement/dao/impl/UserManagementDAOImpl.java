@@ -1,8 +1,9 @@
 package com.ensense.insense.data.usermanagement.dao.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.ensense.insense.data.common.entity.FunctionalityGroupRef;
+import com.ensense.insense.data.common.entity.Groups;
+import com.ensense.insense.data.common.entity.UserGroupMenuReference;
+import com.ensense.insense.data.usermanagement.dao.UserManagementDAO;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
@@ -10,13 +11,11 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cts.mint.common.entity.FunctionalityGroupRef;
-import com.cts.mint.common.entity.Groups;
-import com.cts.mint.common.entity.UserGroupMenuReference;
-import com.cts.mint.usermanagement.dao.UserManagementDAO;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
-public class UserManagementDAOImpl implements UserManagementDAO{
+public class UserManagementDAOImpl implements UserManagementDAO {
 	private static Logger logger = Logger.getLogger(UserManagementDAOImpl.class);
 
 	@Autowired

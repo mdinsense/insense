@@ -1,14 +1,14 @@
 package com.ensense.insense.core.crawler.model.executer.browser;
 
-import java.util.Iterator;
-import java.util.Set;
-
+import com.ensense.insense.data.common.model.ScheduleDetails;
+import com.ensense.insense.data.utils.BrowserDriverLoaderUtil;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.springframework.context.MessageSource;
 
-import com.cts.mint.uitesting.model.ScheduleDetails;
-import com.cts.mint.util.BrowserDriverLoaderUtil;
+import java.util.Iterator;
+import java.util.Set;
+
 
 public class BrowserUtils {
 	public static WebDriver getWebDriverForInitialLogin(String browserType){

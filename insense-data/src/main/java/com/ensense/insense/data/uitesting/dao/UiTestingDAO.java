@@ -1,12 +1,13 @@
 package com.ensense.insense.data.uitesting.dao;
 
+import com.ensense.insense.data.common.entity.SuitGroupXref;
+import com.ensense.insense.data.uitesting.entity.Suit;
+import com.ensense.insense.data.uitesting.entity.SuitBrokenReportsXref;
+import com.ensense.insense.data.uitesting.entity.SuitTextImageXref;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import com.cts.mint.common.entity.SuitGroupXref;
-import com.cts.mint.uitesting.entity.Suit;
-import com.cts.mint.uitesting.entity.SuitBrokenReportsXref;
-import com.cts.mint.uitesting.entity.SuitTextImageXref;
 
 public interface UiTestingDAO {
 

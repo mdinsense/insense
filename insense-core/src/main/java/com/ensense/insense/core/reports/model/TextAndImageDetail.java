@@ -1,12 +1,12 @@
 package com.ensense.insense.core.reports.model;
 
+import com.ensense.insense.data.common.model.ImageProperty;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import com.cts.mint.crawler.model.HtmlFileDetails;
 
 public class TextAndImageDetail implements Serializable {
 	/**

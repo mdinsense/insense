@@ -1,26 +1,19 @@
 package com.ensense.insense.core.crawler.model.executer;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import com.ensense.insense.data.utils.CRUDObjectsToFileUtil;
+import com.ensense.insense.data.utils.FireFoxUtils;
+import com.ensense.insense.data.utils.scheduler.SmartUserV2;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
-
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
-import com.cts.mint.common.CRUDObjectsToFileUtil;
-import com.cts.mint.common.FireFoxUtils;
-import com.cts.mint.smartuser.SmartUserV2;
 
 
 
-public class SeleniumWebCrawler extends SmartUserV2{
+public class SeleniumWebCrawler extends SmartUserV2 {
 	
 	
 

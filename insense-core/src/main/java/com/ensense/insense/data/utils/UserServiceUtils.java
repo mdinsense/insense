@@ -1,13 +1,14 @@
 package com.ensense.insense.data.utils;
 
-import com.ensense.insense.data.common.model.FunctionalityForGroup;
+import com.ensense.insense.data.common.UserService;
 import com.ensense.insense.data.common.entity.FunctionalityPermission;
 import com.ensense.insense.data.common.entity.Users;
+import com.ensense.insense.data.common.model.FunctionalityForGroup;
 import com.ensense.insense.data.common.model.ManageUsers;
 import com.ensense.insense.data.common.model.MenuAccess;
 import com.ensense.insense.data.common.model.MintMenu;
+import com.ensense.insense.data.common.utils.Constants;
 import com.ensense.insense.services.common.MenuService;
-import com.ensense.insense.services.common.UserService;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;

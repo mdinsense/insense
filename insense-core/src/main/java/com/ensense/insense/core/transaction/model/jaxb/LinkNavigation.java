@@ -8,14 +8,9 @@
 
 package com.ensense.insense.core.transaction.model.jaxb;
 
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import com.cts.mint.transaction.model.jaxb.LinkNavigation.NavigationDetails;
 
 
 /**

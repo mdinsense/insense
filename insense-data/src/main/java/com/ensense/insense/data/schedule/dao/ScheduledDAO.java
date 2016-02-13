@@ -1,10 +1,11 @@
 package com.ensense.insense.data.schedule.dao;
 
+import com.ensense.insense.data.common.model.PartialText;
+import com.ensense.insense.data.common.model.ScheduleDetails;
+import com.ensense.insense.data.common.model.ScheduleExecutionDetail;
+
 import java.util.List;
 
-import com.cts.mint.common.model.PartialText;
-import com.cts.mint.uitesting.model.ScheduleDetails;
-import com.cts.mint.uitesting.model.ScheduleExecutionDetail;
 
 public interface ScheduledDAO {
 	public boolean setCompletion(ScheduleDetails appConf, boolean runStatus);

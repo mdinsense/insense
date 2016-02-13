@@ -1,39 +1,27 @@
 package com.ensense.insense.core.webservice.util;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.Reader;
-import java.io.StringReader;
-import java.io.StringWriter;
-import java.sql.Clob;
-import java.util.Date;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-
-import javax.xml.namespace.QName;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLStreamConstants;
-import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.XMLStreamReader;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathFactory;
-
+import com.ensense.insense.core.webservice.model.ServiceDetails;
+import com.ensense.insense.core.webservice.model.ServiceStatus;
+import com.ensense.insense.core.webservice.model.ServiceUrl;
+import com.ensense.insense.data.common.utils.DateTimeUtil;
+import com.ensense.insense.data.common.utils.FileDirectoryUtil;
+import com.ensense.insense.data.common.utils.Constants;
+import com.ensense.insense.data.utils.EmailUtil;
+import com.ensense.insense.data.webservice.entity.WSPingResults;
+import com.ensense.insense.data.webservice.entity.WSPingSchedule;
+import com.ensense.insense.data.webservice.entity.Webservices;
+import com.ensense.insense.data.webservice.entity.WsOperationParameter;
+import com.ensense.insense.data.webservice.model.WebserviceSetupForm;
+import com.ensense.insense.services.webservice.WebserviceTestingService;
+import com.eviware.soapui.impl.wsdl.*;
+import com.eviware.soapui.impl.wsdl.support.wsdl.WsdlImporter;
+import com.eviware.soapui.model.iface.Response;
+import com.eviware.soapui.support.types.StringToStringMap;
+import com.google.common.net.HttpHeaders;
+import com.predic8.wadl.Method;
+import com.predic8.wadl.Param;
+import com.predic8.wadl.Resource;
+import com.predic8.wsdl.*;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -51,37 +39,25 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import com.cts.mint.common.utils.Constants.SCHEDULER;
-import com.cts.mint.util.DateTimeUtil;
-import com.cts.mint.util.EmailUtil;
-import com.cts.mint.util.FileDirectoryUtil;
-import com.cts.mint.webservice.entity.WSPingResults;
-import com.cts.mint.webservice.entity.WSPingSchedule;
-import com.cts.mint.webservice.entity.Webservices;
-import com.cts.mint.webservice.entity.WsOperationParameter;
-import com.cts.mint.webservice.model.ServiceDetails;
-import com.cts.mint.webservice.model.ServiceStatus;
-import com.cts.mint.webservice.model.ServiceUrl;
-import com.cts.mint.webservice.model.WebserviceSetupForm;
-import com.cts.mint.webservice.service.WebserviceTestingService;
-import com.eviware.soapui.impl.wsdl.WsdlInterface;
-import com.eviware.soapui.impl.wsdl.WsdlOperation;
-import com.eviware.soapui.impl.wsdl.WsdlProject;
-import com.eviware.soapui.impl.wsdl.WsdlRequest;
-import com.eviware.soapui.impl.wsdl.WsdlSubmit;
-import com.eviware.soapui.impl.wsdl.WsdlSubmitContext;
-import com.eviware.soapui.impl.wsdl.support.wsdl.WsdlImporter;
-import com.eviware.soapui.model.iface.Response;
-import com.eviware.soapui.support.types.StringToStringMap;
-import com.google.common.net.HttpHeaders;
-import com.predic8.wadl.Method;
-import com.predic8.wadl.Param;
-import com.predic8.wadl.Resource;
-import com.predic8.wsdl.Definitions;
-import com.predic8.wsdl.Operation;
-import com.predic8.wsdl.Part;
-import com.predic8.wsdl.PortType;
-import com.predic8.wsdl.WSDLParser;
+import javax.xml.namespace.QName;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamConstants;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamReader;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathFactory;
+import java.io.*;
+import java.sql.Clob;
+import java.text.SimpleDateFormat;
+import java.util.*;
 public class WebserviceUtil {
 	
 	private static Logger logger = Logger.getLogger(WebserviceUtil.class);
@@ -366,8 +342,9 @@ public class WebserviceUtil {
 
 							methodType = method.getName();								
 							contentType = method.getRequest().getRepresentations().get(0).getMediaType();
-							requestObjectName = method.getRequest().
-							getRepresentations().get(0).getElementPN().getLocalName();
+							//TODO: Commented because of the exception
+							//requestObjectName = method.getRequest().
+							//getRepresentations().get(0).getElementPN().getLocalName();
 							
 
 						}
@@ -755,7 +732,7 @@ public class WebserviceUtil {
 	}
 	
 	public static ServiceUrl getEsbPingServiceDetails(String serviceName,
-			WebserviceSetupForm webserviceSetupForm, MessageSource esbpingUrlProperty) {
+													  WebserviceSetupForm webserviceSetupForm, MessageSource esbpingUrlProperty) {
 	
 		ServiceUrl serviceUrl = new ServiceUrl();
 		String esbPingUrl = "";
@@ -892,7 +869,7 @@ public class WebserviceUtil {
 	}
 	
 	public static EmailUtil configureEmailForESBPingTesting(WSPingSchedule wSPingSchedule,
-			List<ServiceUrl> serviceUrlList, String scheduleType, String[] emailTriggerOption, MessageSource configProperties ) {
+															List<ServiceUrl> serviceUrlList, String scheduleType, String[] emailTriggerOption, MessageSource configProperties ) {
 		
 		boolean sendEmail = true;
 		
@@ -972,7 +949,7 @@ public class WebserviceUtil {
 				emailContent.append("</td></tr>");
 			}
 		String messageContent = emailContent.toString();
-		messageContent = messageContent.replace(SCHEDULER.REPORT_SUMMARY_PLACE_HOLDER, messageContent);
+		messageContent = messageContent.replace(Constants.SCHEDULER.REPORT_SUMMARY_PLACE_HOLDER, messageContent);
 		return messageContent;
 	}
 	

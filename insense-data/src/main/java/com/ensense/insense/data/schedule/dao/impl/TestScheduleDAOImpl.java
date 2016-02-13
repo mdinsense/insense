@@ -1,5 +1,9 @@
 package com.ensense.insense.data.schedule.dao.impl;
 
+import com.ensense.insense.data.common.model.ExecutionStatus;
+import com.ensense.insense.data.common.model.ScheduleDetails;
+import com.ensense.insense.data.schedule.dao.TestScheduleDAO;
+import com.ensense.insense.data.uitesting.entity.Schedule;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
@@ -8,11 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.cts.mint.common.utils.ExecutionStatus;
-import com.cts.mint.dao.TestScheduleDAO;
-import com.cts.mint.uitesting.entity.Schedule;
-import com.cts.mint.uitesting.model.ScheduleDetails;
 
 @Service
 public class TestScheduleDAOImpl implements TestScheduleDAO {

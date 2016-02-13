@@ -1,5 +1,7 @@
 package com.ensense.insense.data.common.model;
 
+import com.ensense.insense.data.crawler.model.FormElements;
+
 import java.io.Serializable;
 import java.util.List;
 

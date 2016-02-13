@@ -2,7 +2,7 @@ package com.ensense.insense.core.crawler.model.executer;
 
 import com.ensense.insense.data.common.model.*;
 import com.ensense.insense.data.utils.scheduler.SmartUserV2;
-import com.ensense.insense.services.common.utils.FileDirectoryUtil;
+import com.ensense.insense.data.common.utils.FileDirectoryUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;

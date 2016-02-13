@@ -1,6 +1,6 @@
 package com.ensense.insense.data.common.model;
 
-import com.ensense.insense.data.common.util.WebDriverListener;
+import com.ensense.insense.data.common.utils.WebDriverListener;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.openqa.selenium.WebDriver;
 

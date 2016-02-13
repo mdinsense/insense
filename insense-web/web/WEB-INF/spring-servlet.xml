@@ -34,7 +34,7 @@
 		<task:executor id="myExecutor" pool-size="40"/>
 		<task:scheduler id="taskScheduler" pool-size="40"/>
 		<mvc:interceptors>
-  			<bean class="com.cts.mint.common.interceptor.CommonInterceptor"></bean>
+  			<bean class="com.cts.mint.com.ensense.insense.web.common.interceptor.CommonInterceptor"></bean>
   		</mvc:interceptors> 
 
 	<!-- freemarker config -->

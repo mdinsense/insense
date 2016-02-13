@@ -1,9 +1,10 @@
 package com.ensense.insense.services.uiadmin.mintv4;
 
+import com.ensense.insense.data.uiadmin.form.schedule.mintv4.TestSuitDetails;
+import com.ensense.insense.services.uiadmin.form.schedule.mintv4.TestSuitForm;
+
 import java.util.List;
 
-import com.cts.mint.uitesting.model.mintv4.TestSuitDetails;
-import com.cts.mint.uitesting.model.mintv4.TestSuitForm;
 
 public interface TestSuitService {
 	public boolean saveSuit(TestSuitForm suitForm);

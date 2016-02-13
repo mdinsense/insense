@@ -1,11 +1,9 @@
 package com.ensense.insense.data.common.dao.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
+import com.ensense.insense.data.common.dao.UserDAO;
+import com.ensense.insense.data.common.entity.Groups;
+import com.ensense.insense.data.common.entity.Users;
+import com.ensense.insense.data.common.model.ManageUsers;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
@@ -16,10 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.cts.mint.common.dao.UserDAO;
-import com.cts.mint.common.entity.Groups;
-import com.cts.mint.common.entity.Users;
-import com.cts.mint.common.model.ManageUsers;
+import java.util.*;
 
 @Service
 public class UserDAOImpl implements UserDAO {

@@ -1,5 +1,7 @@
 package com.ensense.insense.core.webservice.model;
 
+import com.ensense.insense.data.webservice.model.WsSuite;
+
 import java.util.Arrays;
 
 

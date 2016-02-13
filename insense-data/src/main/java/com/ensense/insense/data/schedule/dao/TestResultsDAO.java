@@ -1,6 +1,6 @@
 package com.ensense.insense.data.schedule.dao;
 
-import com.cts.mint.uitesting.entity.Results;
+import com.ensense.insense.data.uitesting.entity.Results;
 
 public interface TestResultsDAO {
 

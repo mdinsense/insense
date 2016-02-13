@@ -1,10 +1,11 @@
 package com.ensense.insense.data.uitesting.dao;
 
+import com.ensense.insense.data.uitesting.entity.AnalyticsExcludeLink;
+import com.ensense.insense.data.uitesting.entity.ExcludeLinkType;
+import com.ensense.insense.data.uitesting.entity.ExcludeUrl;
+
 import java.util.List;
 
-import com.cts.mint.uitesting.entity.AnalyticsExcludeLink;
-import com.cts.mint.uitesting.entity.ExcludeLinkType;
-import com.cts.mint.uitesting.entity.ExcludeUrl;
 
 public interface ExcludeURLDAO {
 	

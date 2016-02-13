@@ -1,18 +1,12 @@
 package com.ensense.insense.data.common.entity;
 
-import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
+import com.ensense.insense.data.common.utils.JsonReaderWriter;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.annotations.GenericGenerator;
 
-import com.cts.mint.common.JsonReaderWriter;
+import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * The persistent class for the menu database table.

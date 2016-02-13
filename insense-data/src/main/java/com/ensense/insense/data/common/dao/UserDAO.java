@@ -1,14 +1,11 @@
 package com.ensense.insense.data.common.dao;
 
+import com.ensense.insense.data.common.entity.Groups;
+import com.ensense.insense.data.common.entity.Users;
+import com.ensense.insense.data.common.model.ManageUsers;
+
 import java.util.List;
 import java.util.Map;
-
-import com.cts.mint.common.entity.ApplicationGroupReference;
-import com.cts.mint.common.entity.EnvironmentCategoryGroupXref;
-import com.cts.mint.common.entity.Groups;
-import com.cts.mint.common.entity.Users;
-import com.cts.mint.common.model.ManageUsers;
-
 
 public interface UserDAO {
 	public Users getMintUser(String userid);
